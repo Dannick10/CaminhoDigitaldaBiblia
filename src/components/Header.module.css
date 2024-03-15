@@ -1,0 +1,35 @@
+
+nav{
+    position: relative;
+    width: 100vw;
+}
+
+
+.nav_digital{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 2em;
+    background-color: var(--color4);
+    color: var(--color3);
+    height: 4.5em;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+}
+
+.nav_first{
+    font-size: 1.3em;
+}
+
+.nav_last ul{
+    display: flex;
+    list-style: none;
+    gap: 2em;
+}
+
+.nav_last a {
+    color: var(--color3);
+    text-decoration: none;
+}
+

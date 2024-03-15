@@ -1,0 +1,55 @@
+.home_header{
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(var(--color1),var(--color0));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--color3);
+}
+
+.description{
+    text-align: center;
+    line-height: 3.5em;
+}
+
+.description h1{
+    font-size: 2.3em;
+}
+
+.description h2{
+    font-size: 1.3em;
+}
+
+.description i{
+    font-size: 5em;
+    position: relative;
+    top: 1em;
+}
+
+
+.svg_header img{
+position: absolute;
+bottom: 20%;
+right: 12em;
+width: 13em;
+transform: rotate(10deg);
+}
+
+.mainHome{
+    background-color: rgb(247, 244, 244);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.versHome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 30em;
+    height: 80%;
+}

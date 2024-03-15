@@ -1,0 +1,40 @@
+.book_section{
+    width: 50em;
+    text-align: center;
+    margin: auto;
+    line-height: 2em;
+   
+}
+.chapter{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.book_read{
+    text-align: justify;
+    padding-bottom: 1em;
+}
+
+.book_title{
+    padding: 1em 0em;
+}
+
+.choose{
+    font-size: 1.5em;
+    color: var(--color1);
+    width: 100%;
+     height: 30vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.book_title{
+    color: var(--color1);
+}
+
+.book_read span{
+    color: var(--color1);
+    font-weight: bold;
+}

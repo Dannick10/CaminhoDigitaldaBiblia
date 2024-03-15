@@ -1,0 +1,89 @@
+.section_books{
+position: relative;
+}
+
+.chaptesnumber{
+  width: 100%;
+  margin: auto;
+
+}
+
+.bookNumber{
+  position: relative;
+  background-color: var(--color0);
+}
+
+.loadingBooks{
+  background-color: black;
+  position: fixed;
+  width: 100vw;
+  height: 80%;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+
+}
+
+.loadingBooks::after{
+  content: 'Caminho Digital da Bíblia';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  font-size: 5vw;
+  animation: 2s ease-in 1s infinite loading;
+}
+
+.loadingBooks::before{
+  content: '';
+  width: 50%;
+  height: .1em;
+  top: 68%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  background-color: none;
+  justify-content: center;
+  transform: translate(50%,50%);
+  text-align: center;
+  position: absolute;
+  font-size: 10vw;
+  animation: 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s infinite border;
+}
+
+@keyframes loading{
+  0%{
+    content: 'Caminho Digital da Bíblia';
+    
+  }
+  20%{
+    content: 'Caminho Digital da Bíblia.';
+  }
+  50%{
+    content: 'Caminho Digital da Bíblia..';
+  }
+  100%{
+    content: 'Caminho Digital da Bíblia...'; 
+  }
+}
+
+@keyframes border{
+  0%{
+    width: 0;
+    background-color: none;
+  }
+ 
+  50%{
+    width: 50%;
+  }
+  100%{
+    width: 0;
+    background-color: white;
+  }
+}

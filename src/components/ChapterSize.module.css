@@ -1,0 +1,32 @@
+.numbers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin: auto;
+    position: sticky;
+ 
+}
+
+.numbers ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.numbers li{
+    padding: 0.5em;
+}
+
+.numbers button{
+    width: 2em;
+    padding: 0.2px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font);
+    font-weight: bolder;
+    color: var(--color3);
+    border-radius: 50px;
+   
+}

@@ -1,0 +1,106 @@
+.active{
+    border-bottom: 3px solid  #F43F51;
+ }
+
+
+ .about_main{
+    color: var(--color4);
+    line-height: 1.6em;
+    padding: 1em 0;
+ }
+
+
+.about_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80vh;
+     
+}
+
+.title_about{
+    font-size: 1.2em;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.firstline,
+.lastline{
+position: relative;
+width: 18em;
+right: 2em;
+height: .3em;
+background-color: var(--color1);
+}
+
+.lastline{
+left: 2em;
+}
+
+
+
+.description_about{
+    width: 60%;
+}
+
+.about_submit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font);
+}
+
+.about_submit textarea,
+.about_submit input[type="email"]{
+resize: none;
+width: 40vw;
+height: 30vh;
+font-family: var(--font);
+letter-spacing: .11em;
+padding: .1em;
+background-color: var(--color4);
+color: var(--color3);
+border-radius: .4em;
+}
+
+.about_submit input[type="email"]{
+    border: none;
+    height: 1.3em;
+    border-radius: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: .2em;
+  
+}
+
+.about_main textarea:focus,
+.about_submit input[type="email"]{
+    border-color: var(--color1);
+    outline: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+.about_submit input[type="submit"]{
+    border: none;
+    font-family: var(--font);
+    background: var(--color4);
+    color: var(--color3);
+    padding: .5em 2em;
+    border-radius: .2em;
+    cursor: pointer;
+}
+
+.about_main label{
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0;
+}
+
+.about_main label div{
+font-weight: 500;
+}
+
+
