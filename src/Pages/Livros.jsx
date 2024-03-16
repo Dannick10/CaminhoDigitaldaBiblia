@@ -9,8 +9,6 @@ const Livros = () => {
 
   const [bibleJson,SetBibleJson] = useState([])
 
-    //https://bible-api.com/BOOK+CHAPTER:VERSE
-  
     const [bookName,SetBookName] = useState('')
     const [bookChapter,SetBookChapter] = useState('1')
     const [translation,SetTranslation] = useState('almeida')
