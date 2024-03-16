@@ -28,6 +28,11 @@
     top: 1em;
 }
 
+.verHome_Title{
+    color: var(--color1);
+    font-size: 1.3em;
+}
+
 
 .svg_header img{
 position: absolute;

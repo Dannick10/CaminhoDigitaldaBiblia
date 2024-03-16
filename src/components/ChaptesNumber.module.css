@@ -2,7 +2,6 @@
     display: flex;
     overflow: auto;
     padding-top: 4em;
-    background-color: var(--color2);
     margin: auto;
 }
 
@@ -13,7 +12,6 @@
 }
 
 .link li{
-  
     padding: 1em;
 }
 

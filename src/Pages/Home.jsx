@@ -4,7 +4,7 @@ import biblebook from '/biblebook.svg'
 
 const Home = () => {
 
-  const manyChaptersBookHasRandom = [
+const manyChaptersBookHasRandom = [
     {nome: "Gênesis", number: 50},
     {nome: "Êxodo", number: 40},
     {nome: "Levítico", number: 27},
@@ -73,35 +73,33 @@ const Home = () => {
     {nome: "Apocalipse", number: 22}
 ];
 
-const [bibleJson,SetBibleJson] = useState([])
+const [bibleJsonrandom,SetBibleJsonrandom] = useState([])
 const [loading,Setloading] = useState(false)
 
 const BookChosse = Math.floor(Math.random()*manyChaptersBookHasRandom.length)
 const bookNumber = manyChaptersBookHasRandom[BookChosse].number 
-
 const ChapterChoose = Math.floor(Math.random()*bookNumber)
 
-useEffect(()=>{
-  
-  try{
+  useEffect(()=>{
+    
+        try{
 
-  const fetchData = async () => {
-  Setloading(true)
-  const bookJson = await fetch(`https://bible-api.com/${manyChaptersBookHasRandom[BookChosse].nome}:${bookNumber}:${ChapterChoose+1}?translation=almeida`)
-  const data = await bookJson.json()
+        const fetchData = async () => {
 
+            Setloading(true)
+            const bookJson = await fetch(`https://bible-api.com/${manyChaptersBookHasRandom[BookChosse].nome}:${bookNumber}:${ChapterChoose+1}?translation=almeida`)
+            const data = await bookJson.json()
 
+            SetBibleJsonrandom(data)
+            Setloading(false)
+        }
+        
+        fetchData()
+      } catch{
+        console.log('error')
+      }
 
-  SetBibleJson(data)
-    Setloading(false)
-  }
-  
-  fetchData()
-} catch{
-  console.log('error')
-}
-
-},[])
+  },[])
 
 
 
@@ -139,10 +137,10 @@ useEffect(()=>{
            <h2>Versículo do Dia</h2>
          </div>
          <div className={styles.verHome_Text}>
-           <p>{bibleJson.text}</p>
+           <p>{bibleJsonrandom.text}</p>
          </div>
          <div className={styles.verHome_SUB}>
-             <span>{bibleJson.reference}</span>
+             <span>{bibleJsonrandom.reference}</span>
            </div>
        </section>
       </main>

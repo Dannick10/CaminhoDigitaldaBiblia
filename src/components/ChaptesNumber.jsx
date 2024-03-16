@@ -90,7 +90,7 @@ const ChaptesNumber = ({SetBookName,SetChapterSize,SetBookChapter}) => {
       <ul>
         {manyChaptersBookHas.map((e, i) => (
           <li key={i} className={styles.chapterlink}>
-            <button onClick={handleClick} style={e.nome == selectChapter?{color:'var(--color0)'}:{}}>{e.nome}</button>
+            <button onClick={handleClick} style={e.nome == selectChapter?{color:'var(--color1)'}:{}}>{e.nome}</button>
           </li>
         ))}
       </ul>

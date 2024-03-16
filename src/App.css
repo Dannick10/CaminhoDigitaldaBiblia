@@ -5,7 +5,7 @@
 
   --color0: #F4522B;
   --color1: #F43F51;
-  --color3: #D9D9D9;
+  --color3: #fcfcfc;
   --color4: #222222;
 }
 
@@ -16,6 +16,7 @@
 
 body{
   font-family: var(--font0);
+  background-color: var(--color3)
 }
 
 ::selection{
