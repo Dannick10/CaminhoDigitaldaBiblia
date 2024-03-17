@@ -80,20 +80,29 @@ const BookChosse = Math.floor(Math.random()*manyChaptersBookHasRandom.length)
 const bookNumber = manyChaptersBookHasRandom[BookChosse].number 
 const ChapterChoose = Math.floor(Math.random()*bookNumber)
 
+const dayUTC = new Date()
+let getDay =dayUTC.getDay()
+
+
+const dayFetch = localStorage.getItem('dayFetch')
+const dayStorage = localStorage.getItem("day")
+const titleStorage = localStorage.getItem("title")
+const verseStorage = localStorage.getItem("text")
+
   useEffect(()=>{
     
         try{
-
         const fetchData = async () => {
 
             Setloading(true)
+
             const bookJson = await fetch(`https://bible-api.com/${manyChaptersBookHasRandom[BookChosse].nome}:${bookNumber}:${ChapterChoose+1}?translation=almeida`)
             const data = await bookJson.json()
 
             SetBibleJsonrandom(data)
             Setloading(false)
         }
-        
+      
         fetchData()
       } catch{
         console.log('error')
@@ -102,14 +111,28 @@ const ChapterChoose = Math.floor(Math.random()*bookNumber)
   },[])
 
 
-
+  
+  
   const handlescroll = () =>{
-
+    
     window.scroll({
       top: '800',
       behavior: "smooth",
     });
   }
+
+
+ if(dayFetch === 'false'){
+      localStorage.setItem('day',getDay)
+      localStorage.setItem('text',bibleJsonrandom.text)
+      localStorage.setItem('title',bibleJsonrandom.reference)
+      localStorage.setItem('dayFetch','true')
+}
+
+if(getDay < dayStorage || getDay > dayStorage){
+  localStorage.setItem('dayFetch','false')
+}
+
 
   return (
     <>
@@ -137,10 +160,10 @@ const ChapterChoose = Math.floor(Math.random()*bookNumber)
            <h2>Versículo do Dia</h2>
          </div>
          <div className={styles.verHome_Text}>
-           <p>{bibleJsonrandom.text}</p>
+           <p>{titleStorage}</p>
          </div>
          <div className={styles.verHome_SUB}>
-             <span>{bibleJsonrandom.reference}</span>
+             <span>{verseStorage}</span>
            </div>
        </section>
       </main>
