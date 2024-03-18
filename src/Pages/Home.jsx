@@ -80,39 +80,37 @@ const BookChosse = Math.floor(Math.random()*manyChaptersBookHasRandom.length)
 const bookNumber = manyChaptersBookHasRandom[BookChosse].number 
 const ChapterChoose = Math.floor(Math.random()*bookNumber)
 
-const dayUTC = new Date()
-let getDay =dayUTC.getDay()
+const actualdayfetch = new Date().toLocaleDateString()
+const lastdayfetch = localStorage.getItem('lastdayfetch')
 
-
-const dayFetch = localStorage.getItem('dayFetch')
-const dayStorage = localStorage.getItem("day")
-const titleStorage = localStorage.getItem("title")
-const verseStorage = localStorage.getItem("text")
+const daytext =  localStorage.getItem('daytext')
+const dayreference =  localStorage.getItem('dayreference')
 
   useEffect(()=>{
-    
+    if(actualdayfetch !== lastdayfetch){
         try{
         const fetchData = async () => {
-
             Setloading(true)
 
             const bookJson = await fetch(`https://bible-api.com/${manyChaptersBookHasRandom[BookChosse].nome}:${bookNumber}:${ChapterChoose+1}?translation=almeida`)
             const data = await bookJson.json()
 
             SetBibleJsonrandom(data)
+            
+            localStorage.setItem('daytext', bibleJsonrandom.text)
+            localStorage.setItem('dayreference',bibleJsonrandom.reference)
+            localStorage.setItem('lastdayfetch',new Date().toLocaleDateString())
+
             Setloading(false)
-        }
-      
+        }   
         fetchData()
       } catch{
         console.log('error')
       }
+    }
 
   },[])
 
-
-  
-  
   const handlescroll = () =>{
     
     window.scroll({
@@ -120,18 +118,7 @@ const verseStorage = localStorage.getItem("text")
       behavior: "smooth",
     });
   }
-
-
- if(dayFetch === 'false'){
-      localStorage.setItem('day',getDay)
-      localStorage.setItem('text',bibleJsonrandom.text)
-      localStorage.setItem('title',bibleJsonrandom.reference)
-      localStorage.setItem('dayFetch','true')
-}
-
-if(getDay < dayStorage || getDay > dayStorage){
-  localStorage.setItem('dayFetch','false')
-}
+  
 
 
   return (
@@ -160,10 +147,10 @@ if(getDay < dayStorage || getDay > dayStorage){
            <h2>Versículo do Dia</h2>
          </div>
          <div className={styles.verHome_Text}>
-           <p>{titleStorage}</p>
+           <p>{daytext}</p>
          </div>
          <div className={styles.verHome_SUB}>
-             <span>{verseStorage}</span>
+             <span>{dayreference}</span>
            </div>
        </section>
       </main>

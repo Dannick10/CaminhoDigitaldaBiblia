@@ -14,15 +14,6 @@ function App() {
   return (
     <>
 
-    
-    {/*
-     <ChaptesNumber SetBookName={SetBookName} SetChapterSize={SetChapterSize}/>
-     <ChapterSize chaptesNumber={chapterSize} SetBookChapter={SetBookChapter}/>
-     
-     {loading && <div>Carregando</div>}
-     {bibleJson && <Books bookTitle={bibleJson.reference} bookChapter={bookName} bookText={bibleJson.verses}/>}
-    */}
-
      <BrowserRouter>
        <Header/>
       <Routes>
