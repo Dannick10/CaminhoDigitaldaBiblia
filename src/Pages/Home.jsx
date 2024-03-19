@@ -73,7 +73,6 @@ const manyChaptersBookHasRandom = [
     {nome: "Apocalipse", number: 22}
 ];
 
-const [bibleJsonrandom,SetBibleJsonrandom] = useState([])
 const [loading,Setloading] = useState(false)
 
 const BookChosse = Math.floor(Math.random()*manyChaptersBookHasRandom.length)
@@ -95,10 +94,8 @@ const dayreference =  localStorage.getItem('dayreference')
             const bookJson = await fetch(`https://bible-api.com/${manyChaptersBookHasRandom[BookChosse].nome}:${bookNumber}:${ChapterChoose+1}?translation=almeida`)
             const data = await bookJson.json()
 
-            SetBibleJsonrandom(data)
-            
-            localStorage.setItem('daytext', bibleJsonrandom.text)
-            localStorage.setItem('dayreference',bibleJsonrandom.reference)
+            localStorage.setItem('daytext', data.text)
+            localStorage.setItem('dayreference',data.reference)
             localStorage.setItem('lastdayfetch',new Date().toLocaleDateString())
 
             Setloading(false)
