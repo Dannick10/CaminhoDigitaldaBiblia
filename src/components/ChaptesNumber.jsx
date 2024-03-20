@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import styles from './ChaptesNumber.module.css'
 
-const ChaptesNumber = ({SetBookName,SetChapterSize,SetBookChapter}) => {
+const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter}) => {
 
     const manyChaptersBookHas = [
         {nome: "Gênesis", number: 50},
@@ -72,15 +72,11 @@ const ChaptesNumber = ({SetBookName,SetChapterSize,SetBookChapter}) => {
         {nome: "Judas", number: 1},
         {nome: "Apocalipse", number: 22}
     ];
-
-    const [selectChapter,SetSelectChapter] = useState('')
-
     const handleClick = (e) =>{
         SetBookName(e.target.innerHTML)
         let a = manyChaptersBookHas.find(book => book.nome === e.target.innerHTML);
         SetChapterSize(a.number)
         SetBookChapter(1)
-        SetSelectChapter(e.target.innerHTML)
     }
 
    
@@ -90,7 +86,7 @@ const ChaptesNumber = ({SetBookName,SetChapterSize,SetBookChapter}) => {
       <ul>
         {manyChaptersBookHas.map((e, i) => (
           <li key={i} className={styles.chapterlink}>
-            <button onClick={handleClick} style={e.nome == selectChapter?{color:'var(--color1)'}:{}}>{e.nome}</button>
+            <button onClick={handleClick} style={e.nome === bookname?{color:'var(--color1)'}:{}}>{e.nome}</button>
           </li>
         ))}
       </ul>
