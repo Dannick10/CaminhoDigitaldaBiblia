@@ -42,3 +42,25 @@
 input, label div,button,textarea{
     user-select: none;
 }
+
+@media screen and (max-width: 800px) {
+    .book_section{
+        width: 100%;
+    }
+
+    .book_title{
+        font-size: 1.2em;
+    }
+
+    .book_read{
+        font-size: 1em;
+        padding: .5em 1em;
+    }
+
+    .choose{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 0.8em;
+    }
+}

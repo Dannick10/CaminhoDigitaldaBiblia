@@ -7,12 +7,7 @@ const ChapterSize = ({chaptesNumber,SetBookChapter,bookchapter}) => {
     
   const handleChapter = (chapter) =>{
     SetBookChapter(chapter)
-
-    window.scroll({
-      top: 0,
-      behavior: "smooth",
-    });
-  
+    window.scrollTo(0,0);
   }
 
   const elements = Array.from({ length: chaptesNumber }, (_, index) => (
