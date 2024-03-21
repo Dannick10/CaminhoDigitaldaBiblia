@@ -132,10 +132,6 @@ const dayreference =  localStorage.getItem('dayreference')
         
         </section>
 
-        <section className={styles.svg_header}>
-            <img src={biblebook} alt="imagem da biblia" />
-        </section>
-
       </header>
 
       <main className={styles.mainHome}>
