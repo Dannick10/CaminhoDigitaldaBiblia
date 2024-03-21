@@ -30,3 +30,15 @@
     border-radius: 50px;
    
 }
+
+@media screen and (max-width: 800px) {
+ 
+    .numbers {
+    width: 100%;
+    }
+
+    .numbers button{
+        font-size: .9em;
+    }
+
+}
