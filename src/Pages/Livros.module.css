@@ -68,7 +68,7 @@ position: relative;
   color: var(--color3);
   font-weight:500;
   letter-spacing: .2em;
-
+  cursor: pointer;
 }
 
 .btnexpadin input{
@@ -76,6 +76,7 @@ position: relative;
   height: 100%;
   position: absolute;
   opacity:0;
+  cursor: pointer;
 }
 
 

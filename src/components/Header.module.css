@@ -34,6 +34,12 @@
     text-decoration: none;
 }
 
+.nav_last a:hover{
+    color: var(--color1);
+    perspective: 800px;
+    transition: 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
 .nav{
     position: fixed;
     top: 0;
