@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react'
+import { useState,useRef } from 'react'
 import styles from './Livros.module.css'
 
 import Books from '../components/Books.modules'
@@ -8,14 +8,25 @@ import { useFetchBible } from '../hooks/useFetchBible'
 
 const Livros = () => {
 
+  const checkRef = useRef(null);
+  const [checked, setChecked] = useState(false);
+
   const {bibleJson,bookName,SetBookName,bookChapter,SetBookChapter,loading,chapterSize,SetChapterSize} = useFetchBible()
   console.log(bookName)
   return (
     <main className={styles.section_books}>
          
     
-       <section className={styles.chaptesnumber}>
-         <ChaptesNumber bookname={bookName} SetBookName={SetBookName} SetChapterSize={SetChapterSize} SetBookChapter={SetBookChapter}/>
+       <section className={styles.chaptesnumber} style={checked ? {position:'fixed'}:{}}>
+         <ChaptesNumber bookname={bookName} SetBookName={SetBookName} SetChapterSize={SetChapterSize} SetBookChapter={SetBookChapter} checked={checked}/>
+         <div className={styles.btnexpadin}>
+         <span>{!checked?(<p>Expandir</p>):(<p>Fechar</p>)}</span>
+         <input 
+          ref={checkRef} 
+          type="checkbox" 
+          onChange={(e) => setChecked(e.target.checked)}
+         />
+         </div>
        </section> 
 
        <section className={styles.book}>

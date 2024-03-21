@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import styles from './ChaptesNumber.module.css'
 
-const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter}) => {
+const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter,checked}) => {
 
     const manyChaptersBookHas = [
         {nome: "Gênesis", number: 50},
@@ -78,15 +78,13 @@ const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter}) => 
         SetChapterSize(a.number)
         SetBookChapter(1)
     }
-
-   
     
   return (
     <div className={styles.link}>
-      <ul>
+      <ul  style={checked ? {height: '75vh', flexWrap: 'wrap', flexDirection: 'column'}:{}}>
         {manyChaptersBookHas.map((e, i) => (
           <li key={i} className={styles.chapterlink}>
-            <button onClick={handleClick} style={e.nome === bookname?{color:'var(--color1)'}:{color:'var(--color4)'}}>{e.nome}</button>
+            <button onClick={handleClick} style={e.nome === bookname?{color:'var(--color1)'}:{color:'var(--color3)'}}>{e.nome}</button>
           </li>
         ))}
       </ul>
