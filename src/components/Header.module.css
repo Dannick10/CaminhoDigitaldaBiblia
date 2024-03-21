@@ -1,5 +1,5 @@
 
-nav{
+.nav_digital{
     position: relative;
     width: 100vw;
     user-select: none;
@@ -34,3 +34,122 @@ nav{
     text-decoration: none;
 }
 
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100em;
+    height: 100%;
+}
+
+.nav_mobile{
+    display: none;
+}
+
+.button_mobile{
+    width: 2.5em;
+    height: 2em;
+    position: relative;
+    display: flex;
+   
+}
+
+.button_mobile span{
+    z-index: 4;
+    position: absolute;
+    width: 100%;
+    height: .4em;
+    background-color: var(--color3);
+    transition: .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.button_mobile span:nth-child(2){
+   transform: translateY(0.8em);
+   transition: .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button_mobile span:nth-child(3){
+transform: translateY(1.7em);
+}
+
+.button_mobile input[type="checkbox"]{
+    width: 110%;
+    height: 110%;
+    z-index: 5;
+    opacity: 0;
+}
+
+.links_mobile{
+    position: fixed;
+    right: 0;
+    visibility: hidden;
+    top: -100vh;
+    width: 50vw;
+    height: 100vh;
+    background-color: var(--color4);
+    display: flex;
+    justify-content: center;
+    transition: .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+
+.links_mobile ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 70%;
+}
+
+.links_mobile a {
+    color: var(--color3);
+    text-decoration: none;
+}
+
+.button_mobile input:checked ~ .links_mobile {
+display: block;
+right: 0;
+top: 0;
+transform: none;
+visibility: visible;
+
+}
+
+.button_mobile input:checked ~ span{
+    transform: rotate(40deg);
+ }
+
+ .button_mobile input:checked ~ span:nth-child(2){
+  opacity: 0;
+    background-color: var(--color1);
+    transform: rotate(180deg);
+ }
+
+ .button_mobile input:checked ~ span:nth-child(3){
+    transform: rotate(-40deg);
+ }
+
+@media screen and (max-width: 600px) {
+    
+    .nav_digital{
+        padding: 0 .8em;
+        justify-content: flex-start;
+    }
+
+    .nav_first{
+        font-size: 0.9em;
+    }
+
+    .nav_last{
+        display: none;
+    }
+
+    .nav_mobile{
+        display: block;
+        position: absolute;
+        right: 3em;
+    }
+
+  
+}

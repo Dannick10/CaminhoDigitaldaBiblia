@@ -20,7 +20,7 @@ body{
 }
 
 ::selection{
-  background-color: #F43F51;
+  background-color: var(--color1);
   color: white;
 }
 
@@ -32,7 +32,7 @@ body{
   width: 6px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--color1);
-
 }

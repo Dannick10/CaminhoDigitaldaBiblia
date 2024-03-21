@@ -1,23 +1,53 @@
-import React from 'react'
-import styles from './Header.module.css'
-import { Link, NavLink } from 'react-router-dom'
+import React from "react";
+import styles from "./Header.module.css";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav className={styles.nav_digital}>
+    <>
+      <div className="navbar">
+        <nav className={styles.nav_digital}>
           <div className={styles.nav_first}>
-              <h2>Caminho Digital da Bíblia</h2>
+            <h2>Caminho Digital da Bíblia</h2>
           </div>
           <div className={styles.nav_last}>
-          
-              <ul>
-                  <li><NavLink  to='/'>INICIO</NavLink></li>
-                  <li><NavLink to='/livros'>LIVROS</NavLink></li>
-                  <li><NavLink to='/sobre'>SOBRE</NavLink></li>
-              </ul>
+            <ul>
+              <li>
+                <NavLink to="/">INICIO</NavLink>
+              </li>
+              <li>
+                <NavLink to="/livros">LIVROS</NavLink>
+              </li>
+              <li>
+                <NavLink to="/sobre">SOBRE</NavLink>
+              </li>
+            </ul>
           </div>
-    </nav>
-  )
-}
+          <div className={styles.nav_mobile}>
+            <div className={styles.button_mobile}>
+              <input type="checkbox" />
+              <span></span>
+              <span></span>
+              <span></span>
+              <div className={styles.links_mobile}>
+                <ul>
+                  <li>
+                    <NavLink to="/">INICIO</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/livros">LIVROS</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/sobre">SOBRE</NavLink>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </>
+  );
+};
 
-export default Header
+export default Header;
