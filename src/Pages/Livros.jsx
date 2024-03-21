@@ -10,15 +10,15 @@ const Livros = () => {
 
   const checkRef = useRef(null);
   const [checked, setChecked] = useState(false);
-
+ 
   const {bibleJson,bookName,SetBookName,bookChapter,SetBookChapter,loading,chapterSize,SetChapterSize} = useFetchBible()
-  console.log(bookName)
+  
   return (
     <main className={styles.section_books}>
          
     
        <section className={styles.chaptesnumber} style={checked ? {position:'fixed'}:{}}>
-         <ChaptesNumber bookname={bookName} SetBookName={SetBookName} SetChapterSize={SetChapterSize} SetBookChapter={SetBookChapter} checked={checked}/>
+         <ChaptesNumber bookname={bookName} SetBookName={SetBookName} SetChapterSize={SetChapterSize} SetBookChapter={SetBookChapter} checked={checked} setChecked={setChecked}/>
          <div className={styles.btnexpadin}>
          <span>{!checked?(<p>Expandir</p>):(<p>Fechar</p>)}</span>
          <input 

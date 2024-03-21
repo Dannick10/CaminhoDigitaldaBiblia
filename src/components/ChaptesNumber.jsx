@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-
 import styles from './ChaptesNumber.module.css'
 
-const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter,checked}) => {
+const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter,checked,setChecked}) => {
 
     const manyChaptersBookHas = [
         {nome: "Gênesis", number: 50},
@@ -72,16 +70,20 @@ const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter,check
         {nome: "Judas", number: 1},
         {nome: "Apocalipse", number: 22}
     ];
+
+
     const handleClick = (e) =>{
         SetBookName(e.target.innerHTML)
         let a = manyChaptersBookHas.find(book => book.nome === e.target.innerHTML);
         SetChapterSize(a.number)
         SetBookChapter(1)
+        window.scrollTo(0,0);
+       setChecked(false)
     }
     
   return (
     <div className={styles.link}>
-      <ul  style={checked ? {height: '75vh', flexWrap: 'wrap', flexDirection: 'column'}:{}}>
+      <ul  style={checked ? {height: '70vh', flexWrap: 'wrap', flexDirection: 'column'}:{}}>
         {manyChaptersBookHas.map((e, i) => (
           <li key={i} className={styles.chapterlink}>
             <button onClick={handleClick} style={e.nome === bookname?{color:'var(--color1)'}:{color:'var(--color3)'}}>{e.nome}</button>
