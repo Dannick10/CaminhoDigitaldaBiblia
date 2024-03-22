@@ -10,7 +10,16 @@ const Livros = () => {
 
   const checkRef = useRef(null);
   const [checked, setChecked] = useState(false);
- 
+  const [chapterclose,SetChapterClose] = useState(false)
+
+  const closeChapter = () =>{
+   if(chapterclose){
+    SetChapterClose(false)
+   } else {
+    SetChapterClose(true)
+   }
+  }
+
   const {bibleJson,bookName,SetBookName,bookChapter,SetBookChapter,loading,chapterSize,SetChapterSize} = useFetchBible()
     
   return (
@@ -34,25 +43,48 @@ const Livros = () => {
          {loading && <div className={styles.loadingBooks}></div>}
 
          {bibleJson && <Books bookTitle={bibleJson.reference} bookChapter={bookName} bookText={bibleJson.verses}/>}
+        {!bookName == '' &&(<>
 
-         <div className={styles.controls}>
+            <div className={styles.controls}>
 
               <div className={styles.left} style={bookChapter==1 ?{opacity:'0.3', pointerEvents:'none'}:{opacity:'1'}}><i className="fa-solid fa-chevron-left" onClick={()=>{SetBookChapter(bookChapter - 1),scrollTo(0,0)}}></i></div>
          
-
+              <div>{bookChapter}</div>
             <div className={styles.right} style={chapterSize == bookChapter?{opacity:'0.3',pointerEvents:'none'}:{opacity:'1'}}><i className="fa-solid fa-chevron-right" onClick={()=>{SetBookChapter(bookChapter + 1), scrollTo(0,0)}}></i></div>
 
          </div>
+          </>)}
+          
          
 
        </aside>
-          <aside className={styles.bookNumber}>
-          {!loading &&(
-            <ChapterSize chaptesNumber={chapterSize} SetBookChapter={SetBookChapter} bookchapter={bookChapter}/>
-            )}
-          </aside>
+
+             
+                
+
        </section>
-   
+
+
+      <section style={chapterclose?{position: 'fixed',bottom:'0'}:{position: 'relative'}}>
+     
+         {!bookName == '' && (<>
+         <div className={styles.showchapter}>
+           <div onClick={closeChapter}>
+             <i class="fa-solid fa-book"></i>
+             <p>Mostrar capitulos</p>
+           </div>
+           </div>
+         </>)}
+     
+             {chapterclose && <>
+         <aside className={styles.bookNumber}>
+             {!loading &&(
+               <ChapterSize chaptesNumber={chapterSize} SetBookChapter={SetBookChapter} bookchapter={bookChapter}/>
+               )}
+         </aside>
+              </>}
+        </section>
+
     </main>
   )
 }
