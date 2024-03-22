@@ -79,6 +79,23 @@ position: relative;
   cursor: pointer;
 }
 
+.controls{
+  display: flex;
+  justify-content: space-around;
+  font-size: 2em;
+  color: var(--color4);
+ 
+}
+
+.controls div i{
+  cursor: pointer;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+.controls div i:hover{
+  color:  var(--color1);
+}
 
 @keyframes loading{
   0%{
