@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styles from './Home.module.css'
-import biblebook from '/biblebook.svg'
+
 
 const Home = () => {
 
@@ -127,7 +127,7 @@ const dayreference =  localStorage.getItem('dayreference')
           <h1>Descubra o Caminho Digital da Bíblia</h1>     
           <h2>tradição e tecnologia unidas</h2>
           <p>Descubra diariamente a sabedoria das Escrituras com nosso aleatório do dia.</p>
-          <i class="fa-solid fa-circle-down" onClick={handlescroll}></i>
+          <i className="fa-solid fa-circle-down" onClick={handlescroll}></i>
         </div>
         
         </section>

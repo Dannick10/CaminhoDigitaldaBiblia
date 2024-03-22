@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import styles from './Books.module.css'
 
 const Books = ({bookTitle,bookText}) => {
@@ -14,10 +13,10 @@ const Books = ({bookTitle,bookText}) => {
 
         <aside className={styles.book_read} id='read'>
 
-          {bookText?bookText.map((e)=>(
+          {bookText?bookText.map((e,o)=>(
             <div className={styles.book_read}>
               <div className={styles.verse}></div>
-              <div className={styles.text}><span>{e.verse}.</span> {e.text}</div>
+              <div key={o} className={styles.text}><span>{e.verse}.</span> {e.text}</div>
 
             </div>
           ))

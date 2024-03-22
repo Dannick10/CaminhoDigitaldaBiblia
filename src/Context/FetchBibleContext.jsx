@@ -15,7 +15,7 @@ export const FetchBibleContextProvider = ({children}) => {
   
     
     useEffect(()=>{
-  
+      if(!bookName == ''){
       try{
   
       const fetchData = async () => {
@@ -33,6 +33,7 @@ export const FetchBibleContextProvider = ({children}) => {
     } catch{
       console.log('error')
     }
+  }
   
     },[bookName, bookChapter])
 
