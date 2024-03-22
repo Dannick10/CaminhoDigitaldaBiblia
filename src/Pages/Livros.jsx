@@ -65,12 +65,12 @@ const Livros = () => {
        </section>
 
 
-      <section style={chapterclose?{position: 'fixed',bottom:'0'}:{position: 'relative'}}>
+      <section style={chapterclose?{position: 'fixed',bottom:'0', width: '100vw'}:{position: 'relative'}}>
      
          {!bookName == '' && (<>
          <div className={styles.showchapter}>
            <div onClick={closeChapter}>
-             <i class="fa-solid fa-book"></i>
+             <i className="fa-solid fa-book"></i>
              <p>Mostrar capitulos</p>
            </div>
            </div>
