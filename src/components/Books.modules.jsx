@@ -21,24 +21,27 @@ const Books = ({bookTitle,bookText}) => {
     playAudio?SetPlayAudio(false):SetPlayAudio(true)
   }
 
+  
   const handleCancel = () => {
     SetAudioMenu(false)
     SetPlayAudio(true)
     synth.cancel()
   }
-
+  
+  let msg = new SpeechSynthesisUtterance()
+  
   const handleVoice = () => {
+    let textBible = bookText.map((e)=>e.text)
     let voices = synth.getVoices()
     if(voices.length !== 0) {
-      let textBible = bookText.map((e)=>e.text)
-      let msg = new SpeechSynthesisUtterance()
-      msg.voice = voices[0] 
+      msg.voice = voices.find((v)=> v.lang == 'pt-BR')
       msg.rate = 1
       msg.pitch = 1
       msg.text = textBible
       msg.lang = 'pt-BR'
       synth.speak(msg)
     }
+    console.log(msg)
   }
 
   return (
@@ -50,7 +53,7 @@ const Books = ({bookTitle,bookText}) => {
             <div>
               <h2>{bookTitle}</h2>
             </div>
-            <div>
+            <div className={styles.audioPlay}>
               {!bookTitle == '' && (<>
               <i className="fa-solid fa-microphone" onClick={handleMenu}></i>
               </>)}
@@ -90,8 +93,6 @@ const Books = ({bookTitle,bookText}) => {
             </div>
           ))
           :<div className={styles.choose}><h1>Escolha um livro e deixe a Palavra iluminar o seu dia.</h1></div>}
-            
-
           </aside>
    
 

@@ -12,8 +12,7 @@ export const FetchBibleContextProvider = ({children}) => {
     const [loading,Setloading] = useState(false)
   
     const [chapterSize,SetChapterSize] = useState()
-  
-    
+ 
     useEffect(()=>{
       if(!bookName == ''){
       try{
