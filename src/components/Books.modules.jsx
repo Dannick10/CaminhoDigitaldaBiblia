@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 const Books = ({bookTitle,bookText}) => {
 
+  const [velAudio, SetVelAudio] = useState(1)
   const [audioMenu,SetAudioMenu] = useState(false)
   const [playAudio,SetPlayAudio] = useState(false)
   const synth = window.speechSynthesis
@@ -61,22 +62,26 @@ const Books = ({bookTitle,bookText}) => {
         </section>
 
         {!bookTitle == '' && (<>
-          {audioMenu && (
+          {!audioMenu && (
 
             <div className={styles.audiocontrol}>
 
             <div className={styles.play}>
 
               {playAudio?(<>
-              <i className="fa-solid fa-play" onClick={()=>{handlePlay(),synth.resume()}}></i>
+              <i className="fa-solid fa-play" onClick={()=>{handlePlay(),synth.resume()}} style={{color:'#009920'}}></i>
               </>):(<>
-              <i className="fa-solid fa-pause" onClick={()=>{handlePlay(),synth.pause()}}></i>
+              <i className="fa-solid fa-pause" onClick={()=>{handlePlay(),synth.pause()}}  style={{color:'rgb(255, 85, 33)'}}></i>
               </>)}
 
             </div>
 
             <div className={styles.cancel}>
              <i className="fa-solid fa-stop" onClick={handleCancel}></i>
+            </div>
+
+            <div className={styles.speed}>
+                <span>{velAudio}</span>
             </div>
 
         </div>
