@@ -1,5 +1,5 @@
 import styles from './Books.module.css'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 const Books = ({bookTitle,bookText}) => {
 
@@ -8,14 +8,20 @@ const Books = ({bookTitle,bookText}) => {
   const [playAudio,SetPlayAudio] = useState(false)
   const synth = window.speechSynthesis
   
-  const handleMenu = () => {
-     audioMenu?SetAudioMenu(false):SetAudioMenu(true)
-     SetPlayAudio(false)
+    const handleMenu = () => {
+      audioMenu?SetAudioMenu(false):SetAudioMenu(true)
+      SetPlayAudio(false)
      if(audioMenu){
       handleCancel()
-     } else {
+      handleEraseVerse()
+    } else {
       handleVoice()
      }
+  }
+
+  const handleVel = () => {
+  SetVelAudio(velAudio + .5)
+  if(velAudio >= 2){SetVelAudio(1)}
   }
   
   const handlePlay = () => {
@@ -36,14 +42,16 @@ const Books = ({bookTitle,bookText}) => {
     let voices = synth.getVoices()
     if(voices.length !== 0) {
       msg.voice = voices.find((v)=> v.lang == 'pt-BR')
-      msg.rate = 1
+      msg.rate = velAudio
       msg.pitch = 1
       msg.text = textBible
       msg.lang = 'pt-BR'
       synth.speak(msg)
+      handleList(msg.text)
     }
-    console.log(msg)
+  
   }
+
 
   return (
     <main className={styles.book_section}>
@@ -62,7 +70,7 @@ const Books = ({bookTitle,bookText}) => {
         </section>
 
         {!bookTitle == '' && (<>
-          {!audioMenu && (
+          {audioMenu && (
 
             <div className={styles.audiocontrol}>
 
@@ -80,7 +88,7 @@ const Books = ({bookTitle,bookText}) => {
              <i className="fa-solid fa-stop" onClick={handleCancel}></i>
             </div>
 
-            <div className={styles.speed}>
+            <div className={styles.speed}  onClick={handleVel}>
                 <span>{velAudio}</span>
             </div>
 
@@ -93,7 +101,7 @@ const Books = ({bookTitle,bookText}) => {
           {bookText?bookText.map((e,o)=>(
             <div className={styles.book_read}>
               <div className={styles.verse}></div>
-              <div key={o} className={styles.text}><span>{e.verse}.</span> {e.text}</div>
+              <div key={o} className={styles.text}><span>{e.verse}.</span>{e.text}</div>
 
             </div>
           ))

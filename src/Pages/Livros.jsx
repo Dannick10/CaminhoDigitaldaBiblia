@@ -54,14 +54,8 @@ const Livros = () => {
 
          </div>
           </>)}
-          
-         
-
+        
        </aside>
-
-             
-                
-
        </section>
 
 
