@@ -130,6 +130,9 @@ font-weight: 500;
 
 .register_main{
     display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: center;
 }
 
 .form label{
@@ -149,7 +152,7 @@ font-weight: 500;
 
 .form input{
     padding:.2em .2em;
-   background-color: #e4e4e4;
+   background-color: #E8F0FE;
    border-radius: .3em;
 }
 
