@@ -36,3 +36,10 @@ body{
 ::-webkit-scrollbar-thumb {
   background: var(--color1);
 }
+
+form, button, input{
+  border: none;
+  outline: 0;
+  box-shadow: 0;
+  font-family: var(--font0);
+}

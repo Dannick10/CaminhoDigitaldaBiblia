@@ -8,6 +8,7 @@ import Header from './components/Header'
 import Home from './Pages/Home'
 import Livros from './Pages/Livros'
 import Sobre from './Pages/Sobre'
+import Register from './Pages/Register/Register'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/livros' element={<Livros />}/>
         <Route path='/sobre' element={<Sobre />}/>
+        <Route path='/register' element={<Register/>}/>
       </Routes>
      </BrowserRouter>
     </>

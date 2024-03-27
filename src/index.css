@@ -103,6 +103,72 @@ border-radius: .4em;
 font-weight: 500;
 }
 
+.register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--color1);
+}
+
+.register h1{
+    color: var(--color3);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color3);
+    width: 30em;
+    height: 60vh;
+    padding: 2em 2em;
+    border-radius: .8em 0 0 .8em;
+}
+
+.register_main{
+    display: flex;
+}
+
+.form label{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form label:last-child{
+  padding: 1em 0;
+}
+
+.form label span{
+    font-weight: bold;
+    color: var(--color4);
+}
+
+.form input{
+    padding:.2em .2em;
+   background-color: #e4e4e4;
+   border-radius: .3em;
+}
+
+.form input[type="submit"]{
+    padding: .5em 3em;
+    font-weight: bold;
+    background-color: var(--color1);
+    color: var(--color3);
+    cursor: pointer;
+    letter-spacing: .3em;
+}
+
+.showcase{
+    border-radius: 0 .8em .8em 0;
+}
+
+.showcase h1{
+    color: var(--color1);
+}
 
 @media screen and (max-width: 800px) {
     
