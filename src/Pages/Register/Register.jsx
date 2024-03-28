@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Register.module.css'
 
+
 const Register = () => {
 
 
@@ -30,7 +31,13 @@ const Register = () => {
              </label>
            </form>
            <div className='form showcase'>
-             <h1>BEM VINDO</h1>
+             <div className='showcase_text'>
+               <h1>Bem-vindo ao lar espiritual! </h1>
+               <div className='texts_form'>
+                 <p>Estamos felizes em tê-lo conosco. Juntos, vamos explorar e compartilhar grandes experiências</p>
+                 <p>Faça a sua conta para ter acesso a todas funcionalidades!</p>
+               </div>
+             </div>
            </div>
          </section>
 

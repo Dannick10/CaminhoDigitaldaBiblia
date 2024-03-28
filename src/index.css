@@ -167,10 +167,62 @@ font-weight: 500;
 
 .showcase{
     border-radius: 0 .8em .8em 0;
+    background: url('../public/sky-clouds-cinematic-clouds-wallpaper-5.jpg'), linear-gradient(to top,rgba(66, 65, 65, 0.253),transparent 10%);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.showcase::after{
+    content: '';
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    bottom: 0;
+    border-bottom-right-radius: .8em;
+    border-top: 2px solid var(--color3);
+}
+
+.showcase::before{
+    content: '';
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    bottom: 0;
+    filter: blur(2em);
+    border-bottom-right-radius: .8em;
 }
 
 .showcase h1{
+    font-size: 2.8em;
     color: var(--color1);
+    text-align: center;
+    filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, 0.542))
+}
+
+.showcase p {
+    z-index: 1;
+    color: var(--color3);
+}
+
+.showcase_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 2em;
+}
+
+.texts_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 40%;
 }
 
 @media screen and (max-width: 800px) {
