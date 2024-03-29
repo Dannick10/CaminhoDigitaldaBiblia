@@ -169,7 +169,7 @@ font-weight: 500;
 
 .showcase{
     border-radius: 0 .8em .8em 0;
-    background: url('../public/sky-clouds-cinematic-clouds-wallpaper-5.jpg'), linear-gradient(to top,rgba(66, 65, 65, 0.253),transparent 10%);
+    background: url('/sky-clouds-cinematic-clouds-wallpaper-5.jpg'), linear-gradient(to top,rgba(66, 65, 65, 0.253),transparent 10%);
     background-size: cover;
     background-position: center;
     display: flex;
