@@ -1,7 +1,11 @@
-import React from 'react'
+import { useState } from 'react'
 import styles from './Login.module.css'
 
+
 const Login = () => {
+
+  const [viewpassword,SetViewPassword] = useState('password')
+
   return (
     <div className='register'>
           <h1>Entre na conta</h1>
@@ -9,11 +13,19 @@ const Login = () => {
            <form className='form login'>
              <label>
                <span>Email</span>
-               <input type="email" placeholder='endereço de email' />
+               <input type="email" placeholder='endereço de email' required/>
              </label>
              <label>
                <span>Senha</span>
-               <input type="password" placeholder='senha'/>
+               <input type={viewpassword == 'password'?'password':'text'} placeholder='senha' required  />
+               
+               <div className='visible'>
+                {viewpassword == 'password'?(
+                  <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')}></i>
+                  ):(
+                  <i className="fa-regular fa-eye" onClick={()=>SetViewPassword('password')}></i>
+                )}
+                </div>
              </label>
              <label>
               <input className='btn' type="submit" value="Entrar" />

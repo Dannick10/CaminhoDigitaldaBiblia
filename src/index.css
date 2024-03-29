@@ -141,6 +141,7 @@ font-weight: 500;
     width: 80%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .form label:last-child{
@@ -230,6 +231,18 @@ font-weight: 500;
 .login {
 justify-content: space-evenly;
 
+}
+
+.visible{
+    position: absolute;
+    right: .5em;
+    top: 1.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .2em;
+    color: var(--color0);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {

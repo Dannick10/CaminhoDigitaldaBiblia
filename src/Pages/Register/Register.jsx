@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './Register.module.css'
-
+import { useState } from 'react'
 
 const Register = () => {
 
-
+  const [viewpassword,SetViewPassword] = useState('password')
   return (
     <div className='register'>
           <h1>Crie conta</h1>
@@ -20,11 +20,25 @@ const Register = () => {
              </label>
              <label>
                <span>Senha</span>
-               <input type="password" placeholder='senha'/>
+               <input type={viewpassword == 'password'?'password':'text'} placeholder='senha' required  />
+               <div className='visible'>
+                {viewpassword == 'password'?(
+                  <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')}></i>
+                  ):(
+                  <i className="fa-regular fa-eye" onClick={()=>SetViewPassword('password')}></i>
+                )}
+                </div>
              </label>
              <label>
                <span>Confirmar senha</span>
-               <input type="password" placeholder='confirme a senha'/>
+               <input type={viewpassword == 'password'?'password':'text'} placeholder='confirme a senha' required  />
+               <div className='visible'>
+                {viewpassword == 'password'?(
+                  <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')}></i>
+                  ):(
+                  <i className="fa-regular fa-eye" onClick={()=>SetViewPassword('password')}></i>
+                )}
+                </div>
              </label>
              <label>
               <input className='btn' type="submit" value="Cadastrar" />
