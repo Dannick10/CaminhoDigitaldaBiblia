@@ -116,7 +116,10 @@ const dayreference =  localStorage.getItem('dayreference')
     });
   }
   
-
+  if(daytext == 'undefined' || dayreference == 'underfined'){
+    localStorage.setItem('daytext', 'Disse Deus: haja luz. E houve luz.')
+    localStorage.setItem('dayreference','Gênesis')
+  } 
 
   return (
     <>
