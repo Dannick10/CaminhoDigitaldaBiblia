@@ -9,6 +9,7 @@ import Home from './Pages/Home'
 import Livros from './Pages/Livros'
 import Sobre from './Pages/Sobre'
 import Register from './Pages/Register/Register'
+import Login from './Pages/Login/Login'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/livros' element={<Livros />}/>
         <Route path='/sobre' element={<Sobre />}/>
+        <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
       </Routes>
      </BrowserRouter>

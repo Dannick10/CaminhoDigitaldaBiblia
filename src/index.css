@@ -110,6 +110,8 @@ font-weight: 500;
     justify-content: center;
     height: 100vh;
     background-color: var(--color1);
+    user-select: none;
+    transition: 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19)
 }
 
 .register h1{
@@ -225,6 +227,11 @@ font-weight: 500;
     height: 40%;
 }
 
+.login {
+justify-content: space-evenly;
+
+}
+
 @media screen and (max-width: 800px) {
     
     .firstline,
@@ -250,5 +257,31 @@ font-weight: 500;
     .about_submit input[type="submit"]{
         font-size: .9em;
        width: 8em;
+    }
+
+    .register{
+        padding-top: 10em;
+    }
+
+    .register_main{
+        width: 100%;
+    }
+
+    .showcase{
+        padding-top: 5em;
+        width: 100vw;
+        border-radius: 0;
+    }
+
+    .form {
+        width: 100%;
+        border-radius: 0;
+    }
+
+}
+
+@media screen and (min-width:800px) and (max-width:1200px) {
+    .form{
+      width: 40vw;
     }
 }

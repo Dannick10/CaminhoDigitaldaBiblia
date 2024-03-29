@@ -7,7 +7,7 @@ const Register = () => {
 
   return (
     <div className='register'>
-          <h1>Criar conta</h1>
+          <h1>Crie conta</h1>
          <section className='register_main'>  
            <form className='form'>
              <label>
