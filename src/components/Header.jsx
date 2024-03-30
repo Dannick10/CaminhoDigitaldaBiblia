@@ -16,6 +16,9 @@ const Header = () => {
     } 
   }
 
+  const links = (e) => {
+      closeMenu()
+  }
 
 
   return (
@@ -54,7 +57,7 @@ const Header = () => {
               <span></span>
               <span></span>
               <span></span>
-              <div className={styles.links_mobile}>
+              <div className={styles.links_mobile} onClick={links}>
                 <ul>
                   <li>
                     <NavLink to="/">INICIO</NavLink>
