@@ -245,6 +245,16 @@ justify-content: space-evenly;
     cursor: pointer;
 }
 
+.closeMenu{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 0;
+    position: fixed;
+}
+
 @media screen and (max-width: 800px) {
     
     .firstline,

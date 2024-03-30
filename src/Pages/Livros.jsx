@@ -11,6 +11,7 @@ const Livros = () => {
   const checkRef = useRef(null);
   const [checked, setChecked] = useState(false);
   const [chapterclose,SetChapterClose] = useState(false)
+  const [menuClose,SetmenuClose] = useState(false)
 
   const closeChapter = () =>{
    if(chapterclose){
@@ -20,12 +21,24 @@ const Livros = () => {
    }
   }
 
+  const handleClose = (e) => {
+    SetmenuClose(false)
+      SetChapterClose(false)
+      setChecked(false)
+  }
+
+
   const {bibleJson,bookName,SetBookName,bookChapter,SetBookChapter,loading,chapterSize,SetChapterSize} = useFetchBible()
     
   return (
     <main className={styles.section_books}>
-         
-    
+         {chapterclose &&(
+           <div className="closeMenu" onClick={handleClose}></div>
+         )}
+         {checked &&(
+           <div className="closeMenu" onClick={handleClose}></div>
+         )}
+
        <section className={styles.chaptesnumber} style={checked ? {position:'fixed'}:{}}>
          <ChaptesNumber bookname={bookName} SetBookName={SetBookName} SetChapterSize={SetChapterSize} SetBookChapter={SetBookChapter} checked={checked} setChecked={setChecked}/>
          <div className={styles.btnexpadin}>
