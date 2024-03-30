@@ -1,10 +1,23 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState,useRef } from "react";
 
 
 const Header = () => {
+
+  const [checked,SetChecked] = useState(false)
+  const menu = useRef()
+
+  const closeMenu = () => {
+    if (menu.current && menu.current.checked) {
+      SetChecked(false)
+      menu.current.checked = false;
+    } 
+  }
+
+
+
   return (
     <>
       <div className="navbar">
@@ -31,9 +44,13 @@ const Header = () => {
               </li>
             </ul>
           </div>
+          {checked && (
+          <div className="closeMenu" style={{left:'0'}} onClick={closeMenu}></div>
+          )}
+
           <div className={styles.nav_mobile}>
             <div className={styles.button_mobile}>
-              <input type="checkbox" />
+              <input type="checkbox" ref={menu} onChange={()=>{checked?SetChecked(false):SetChecked(true)}}/>
               <span></span>
               <span></span>
               <span></span>
