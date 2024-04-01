@@ -3,8 +3,12 @@ import styles from "./Header.module.css";
 import { Link, NavLink } from "react-router-dom";
 import { useState,useRef } from "react";
 
+import { useAuthentication } from "../hooks/useAuthentication";
+import { useAuthValue } from "../Context/AuthContext";
 
 const Header = () => {
+
+  const { user } = useAuthValue()
 
   const [checked,SetChecked] = useState(false)
   const menu = useRef()
@@ -36,15 +40,27 @@ const Header = () => {
               <li>
                 <NavLink to="/livros">LIVROS</NavLink>
               </li>
+
+            { !user && (
+              <>
               <li>
                 <NavLink to="/login">Entrar</NavLink>
               </li>
               <li>
                 <NavLink to="/register">Registrar</NavLink>
               </li>
+              </>
+            )
+             }
               <li>
                 <NavLink to="/sobre">SOBRE</NavLink>
               </li>
+
+              {user && <>
+                <li>
+                  <NavLink to="/perfil">PERFIL</NavLink>
+                </li>
+              </>}
             </ul>
           </div>
           {checked && (
@@ -65,15 +81,22 @@ const Header = () => {
                   <li>
                     <NavLink to="/livros">LIVROS</NavLink>
                   </li>
+                  {!user && (<>
                   <li>
                     <NavLink to="/login">Entrar</NavLink>
                   </li>
                   <li>
                      <NavLink to="/register">Registrar</NavLink>
                    </li>
+                  </>)}
                   <li>
                     <NavLink to="/sobre">SOBRE</NavLink>
                   </li>
+                  {user && <>
+                <li>
+                  <NavLink to="/perfil">PERFIL</NavLink>
+                </li>
+              </>}
                 </ul>
               </div>
             </div>

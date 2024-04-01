@@ -21,7 +21,7 @@ const Login = () => {
                
                <div className='visible'>
                 {viewpassword == 'password'?(
-                  <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')}></i>
+                  <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')} style={{color:'black'}}></i>
                   ):(
                   <i className="fa-regular fa-eye" onClick={()=>SetViewPassword('password')}></i>
                 )}

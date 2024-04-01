@@ -15,6 +15,7 @@ import Livros from './Pages/Livros'
 import Sobre from './Pages/Sobre'
 import Register from './Pages/Register/Register'
 import Login from './Pages/Login/Login'
+import Perfil from './Pages/perfil/Perfil'
 
 function App() {
   
@@ -45,6 +46,7 @@ function App() {
         <Route path='/sobre' element={<Sobre />}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/perfil' element={<Perfil/>}/>
       </Routes>
      </BrowserRouter>
       </AuthProvider>

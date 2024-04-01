@@ -44,7 +44,7 @@ const Register = () => {
   const [viewpassword,SetViewPassword] = useState('password')
   return (
     <div className='register'>
-          <h1>Crie conta</h1>
+          <h1>Crie a sua conta</h1>
          <section className='register_main'>  
            <form className='form' onSubmit={handleSubmit}>
 
@@ -81,7 +81,7 @@ const Register = () => {
                  onChange={(e)=>SetPassword(e.target.value)} />
                <div className='visible'>
                 {viewpassword == 'password'?(
-                  <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')}></i>
+                  <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')} style={{color:'black'}}></i>
                   ):(
                   <i className="fa-regular fa-eye" onClick={()=>SetViewPassword('password')}></i>
                 )}
@@ -98,7 +98,7 @@ const Register = () => {
                onChange={(e)=>SetConfirmPassword(e.target.value)} />
                <div className='visible'>
                 {viewpassword == 'password'?(
-                  <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')}></i>
+                  <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')} style={{color:'black'}}></i>
                   ):(
                   <i className="fa-regular fa-eye" onClick={()=>SetViewPassword('password')}></i>
                 )}
