@@ -5,6 +5,8 @@ import './App.css'
 
 import Header from './components/Header'
 
+import { AuthProvider } from './Context/AuthContext'
+
 import Home from './Pages/Home'
 import Livros from './Pages/Livros'
 import Sobre from './Pages/Sobre'
@@ -15,7 +17,7 @@ function App() {
 
   return (
     <>
-
+      <AuthProvider>
      <BrowserRouter>
        <Header/>
       <Routes>
@@ -26,6 +28,7 @@ function App() {
         <Route path='/register' element={<Register/>}/>
       </Routes>
      </BrowserRouter>
+      </AuthProvider>
     </>
   )
 }
