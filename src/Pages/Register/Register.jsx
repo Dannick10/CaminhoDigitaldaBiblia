@@ -1,6 +1,6 @@
-import React from 'react'
 import styles from './Register.module.css'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import { useAuthentication } from '../../hooks/useAuthentication'
 
 const Register = () => {
 
@@ -10,7 +10,9 @@ const Register = () => {
   const [confirmpassword,SetConfirmPassword] = useState('')
   const [error,SetError] = useState('')
 
-  const handleSubmit = (e) => {
+  const {createUser, error: authError, loading} = useAuthentication()
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     SetError('')
@@ -27,9 +29,17 @@ const Register = () => {
       return
     }
 
+    const res = await createUser(user)
+
     console.log(user)
 
   }
+
+  useEffect(()=>{
+    if(authError) {
+      SetError(authError)
+    }
+  },[authError])
 
   const [viewpassword,SetViewPassword] = useState('password')
   return (
@@ -37,17 +47,37 @@ const Register = () => {
           <h1>Crie conta</h1>
          <section className='register_main'>  
            <form className='form' onSubmit={handleSubmit}>
+
              <label>
                <span>Nome</span>
-                 <input type="text" placeholder='nome' required onClick={(e)=>SetDisplayName(e.target.value)}/>
+                 <input 
+                 type='text'
+                 name='name'
+                 required
+                 value={displayName}
+                 onChange={(e) => SetDisplayName(e.target.value)}
+                 />
+                
              </label>
+
              <label>
                <span>Email</span>
-               <input type="email" placeholder='endereço de email' required onClick={(e)=>SetEmail(e.target.value)}/>
+               <input 
+               type="email" 
+               placeholder='endereço de email' 
+               required 
+               value={email} 
+               onChange={(e)=>SetEmail(e.target.value)}/>
              </label>
+
              <label>
                <span>Senha</span>
-               <input type={viewpassword == 'password'?'password':'text'} placeholder='senha' required  onClick={(e)=>SetPassword(e.target.value)} />
+               <input
+                type={viewpassword == 'password'?'password':'text'} 
+                placeholder='senha' 
+                required 
+                value={password} 
+                 onChange={(e)=>SetPassword(e.target.value)} />
                <div className='visible'>
                 {viewpassword == 'password'?(
                   <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')}></i>
@@ -56,9 +86,15 @@ const Register = () => {
                 )}
                 </div>
              </label>
+
              <label>
                <span>Confirmar senha</span>
-               <input type={viewpassword == 'password'?'password':'text'} placeholder='confirme a senha' required  onClick={(e)=>SetConfirmPassword(e.target.value)} />
+               <input 
+               type={viewpassword == 'password'?'password':'text'} 
+               placeholder='confirme a senha' 
+               required 
+               value={confirmpassword}
+               onChange={(e)=>SetConfirmPassword(e.target.value)} />
                <div className='visible'>
                 {viewpassword == 'password'?(
                   <i className="fa-regular fa-eye-slash" onClick={()=>SetViewPassword('text')}></i>
@@ -67,8 +103,10 @@ const Register = () => {
                 )}
                 </div>
              </label>
+
              <label>
               <input className='btn' type="submit" value="Cadastrar" />
+
              </label>
              {error && (
               <div className='error'>
@@ -76,6 +114,7 @@ const Register = () => {
               </div>
              )}
            </form>
+
            <div className='form showcase'>
              <div className='showcase_text'>
                <h1>Bem-vindo ao lar espiritual! </h1>
