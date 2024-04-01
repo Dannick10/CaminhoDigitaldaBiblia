@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import { onAuthStateChanged } from 'firebase/auth'
+import { useAuthentication } from './hooks/useAuthentication'
 
 import './App.css'
 
 import Header from './components/Header'
+
 
 import { AuthProvider } from './Context/AuthContext'
 
@@ -14,10 +17,26 @@ import Register from './Pages/Register/Register'
 import Login from './Pages/Login/Login'
 
 function App() {
+  
+  const [user,Setuser] = useState(undefined)
+  const {auth} = useAuthentication()
+  
+  const loadingUser = user === undefined
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user)=> {
+      Setuser(user)
+    })
+
+  },[auth])
+
+  if(loadingUser) {
+    return <div className='loadingBooks' style={{top:'0', height:'100vh'}}></div>
+  }
 
   return (
     <>
-      <AuthProvider>
+      <AuthProvider value={{user}}>
      <BrowserRouter>
        <Header/>
       <Routes>

@@ -53,7 +53,7 @@ const Livros = () => {
 
        <section className={styles.book}>
        <aside className={styles.bookRead}>
-         {loading && <div className={styles.loadingBooks}></div>}
+         {loading && <div className="loadingBooks"></div>}
 
          {bibleJson && <Books bookTitle={bibleJson.reference} bookChapter={bookName} bookText={bibleJson.verses}/>}
         {!bookName == '' &&(<>

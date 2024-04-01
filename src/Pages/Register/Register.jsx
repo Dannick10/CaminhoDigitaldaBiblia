@@ -53,6 +53,7 @@ const Register = () => {
                  <input 
                  type='text'
                  name='name'
+                 placeholder='nome'
                  required
                  value={displayName}
                  onChange={(e) => SetDisplayName(e.target.value)}
