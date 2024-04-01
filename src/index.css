@@ -261,6 +261,10 @@ font-weight: bold;
 letter-spacing: .1em;
 }
 
+input[type="submit"].disabled_btn {
+background-color: var(--color4);
+}
+
 @media screen and (max-width: 800px) {
     
     .firstline,

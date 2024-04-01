@@ -105,7 +105,12 @@ const Register = () => {
              </label>
 
              <label>
-              <input className='btn' type="submit" value="Cadastrar" />
+              {!loading && (
+                <input className='btn' type="submit" value="Cadastrar" />
+              )}
+              {loading &&(
+              <input className='disabled_btn' type="submit" value="Aguarde" />
+              )}
 
              </label>
              {error && (
