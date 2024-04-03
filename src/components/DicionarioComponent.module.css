@@ -1,7 +1,8 @@
 .dicionario{
     position: fixed;
     bottom: 0;
-    width: 80%;
+    left: 0;
+    width: 50%;
     height: 30%;
     background-color: var(--color4);
     color: var(--color3);

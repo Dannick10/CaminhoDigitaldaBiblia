@@ -1,7 +1,10 @@
 import styles from './Books.module.css'
 import { useState, useRef, useEffect } from 'react'
+import DicionarioComponent from './DicionarioComponent'
+
 
 const Books = ({bookTitle,bookText}) => {
+
 
   const [velAudio, SetVelAudio] = useState(1)
   const [audioMenu,SetAudioMenu] = useState(false)
@@ -52,6 +55,15 @@ const Books = ({bookTitle,bookText}) => {
   
   }
 
+  const [dicionarioSearch,SetdicionarioSearch] = useState('')
+  const URL_dicionario = `https://api.dicionario-aberto.net/word/${dicionarioSearch}`
+  const handleDicionario = (e) => {
+    let word = e.toLowerCase()
+    let regexWord = word.replace(/,/g, "").replace(/\./g, "");
+      console.log(regexWord)
+  
+      SetdicionarioSearch(regexWord)
+  }
 
   return (
     <main className={styles.book_section}>
@@ -101,13 +113,13 @@ const Books = ({bookTitle,bookText}) => {
           {bookText?bookText.map((e,o)=>(
             <div className={styles.book_read}>
               <div className={styles.verse}></div>
-              <div key={o} className={styles.text}><span>{e.verse}.</span>{e.text}</div>
-
+              <div key={o} className={styles.text}><span className={styles.versesDetail}>{e.verse}.</span><span> {e.text.split(' ').map((e)=>(<span onClick={(e)=>{handleDicionario(e.target.textContent)}}>{e} </span>))}</span></div>
             </div>
           ))
           :<div className={styles.choose}><h1>Escolha um livro e deixe a Palavra iluminar o seu dia.</h1></div>}
           </aside>
    
+         <DicionarioComponent url={URL_dicionario}/>
 
     </main>
   )

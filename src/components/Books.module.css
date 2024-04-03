@@ -28,7 +28,7 @@
 .book_title {
     color:var(--color1)
 }
-.book_read span {
+.book_read .versesDetail {
     color:var(--color1);
     font-weight:700
 }

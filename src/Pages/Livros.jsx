@@ -29,7 +29,7 @@ const Livros = () => {
 
 
   const {bibleJson,bookName,SetBookName,bookChapter,SetBookChapter,loading,chapterSize,SetChapterSize} = useFetchBible()
-    
+   
   return (
     <main className={styles.section_books}>
          {chapterclose &&(
@@ -54,8 +54,10 @@ const Livros = () => {
        <section className={styles.book}>
        <aside className={styles.bookRead}>
          {loading && <div className="loadingBooks"></div>}
+         {console.log(bibleJson)}
 
          {bibleJson && <Books bookTitle={bibleJson.reference} bookChapter={bookName} bookText={bibleJson.verses}/>}
+
         {!bookName == '' &&(<>
 
             <div className={styles.controls}>
@@ -67,7 +69,7 @@ const Livros = () => {
 
          </div>
           </>)}
-        
+          
        </aside>
        </section>
 
