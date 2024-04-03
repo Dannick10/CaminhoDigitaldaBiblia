@@ -5,6 +5,7 @@ import DicionarioComponent from './DicionarioComponent'
 
 const Books = ({bookTitle,bookText}) => {
 
+  const [visibility,SetVisibility] = useState(false)
 
   const [velAudio, SetVelAudio] = useState(1)
   const [audioMenu,SetAudioMenu] = useState(false)
@@ -59,7 +60,7 @@ const Books = ({bookTitle,bookText}) => {
   const URL_dicionario = `https://api.dicionario-aberto.net/word/${dicionarioSearch}`
   const handleDicionario = (e) => {
     let word = e.toLowerCase()
-    let regexWord = word.replace(/,/g, "").replace(/\./g, "");
+    let regexWord = word.replace(/[\[\].!'@,><|://\\;&*()_+=]/g, "")
       console.log(regexWord)
   
       SetdicionarioSearch(regexWord)
@@ -118,8 +119,11 @@ const Books = ({bookTitle,bookText}) => {
           ))
           :<div className={styles.choose}><h1>Escolha um livro e deixe a Palavra iluminar o seu dia.</h1></div>}
           </aside>
-   
-         <DicionarioComponent url={URL_dicionario}/>
+            
+          {visibility && (<span></span>)}
+          {bookText && <>
+         <DicionarioComponent url={URL_dicionario}/>   
+          </>}
 
     </main>
   )
