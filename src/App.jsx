@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import { BrowserRouter,Routes,Route, Navigate } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useAuthentication } from './hooks/useAuthentication'
 
@@ -44,9 +44,9 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/livros' element={<Livros />}/>
         <Route path='/sobre' element={<Sobre />}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/register' element={<Register/>}/>
-        <Route path='/perfil' element={<Perfil/>}/>
+        <Route path='/login' element={!user ? <Login/> : <Navigate to="/"/>}/>
+        <Route path='/register' element={!user ? <Register/> : <Navigate to="/"/>}/>
+        <Route path='/perfil' element={user ? <Perfil/>: <Navigate to="/register"/>}/>
       </Routes>
      </BrowserRouter>
       </AuthProvider>
