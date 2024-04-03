@@ -75,15 +75,43 @@ const Books = ({bookTitle,bookText}) => {
             <div>
               <h2>{bookTitle}</h2>
             </div>
+
+                {!bookTitle == '' && (<>
+              <div className={styles.acessibility} style={!visibility?{right:'-3em'}:{right:'.2em'}}> 
+
+              <div className={styles.menuAcess}>
+              
+              {visibility && <>
+                <span>
+                <i class="fa-solid fa-chevron-right" onClick={()=>SetVisibility(false)}></i>
+                  </span>
+              </>}
+              {!visibility && <>
+                <span>
+                <i class="fa-solid fa-chevron-left" onClick={()=>SetVisibility(true)}></i>
+                  </span>
+              </>}
+
+              </div>
+
             <div className={styles.audioPlay}>
-              {!bookTitle == '' && (<>
-              <i className="fa-solid fa-microphone" onClick={handleMenu}></i>
-              </>)}
-            </div>
+
+                <span className={styles.button_acces}>
+                  <i className="fa-solid fa-microphone" onClick={handleMenu}></i></span>
+              </div>
+
+                 <span className={styles.button_acces}>
+                <i className="fa-solid fa-book-open">
+                  </i></span>
+                
+              </div>
+                   </>)}
+                            
+
         </section>
 
         {!bookTitle == '' && (<>
-          {visibility && (<span className='dicionary'><i className="fa-solid fa-book-open"></i></span>)}
+         
           {audioMenu && (
 
             <div className={styles.audiocontrol}>
