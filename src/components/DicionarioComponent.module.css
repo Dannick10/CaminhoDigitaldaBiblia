@@ -1,0 +1,39 @@
+.dicionario{
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    height: 30%;
+    background-color: var(--color4);
+    color: var(--color3);
+    overflow: auto;
+    text-align: center;
+    padding: .5em;
+    border-radius: .2em;
+    border-top: 2px solid var(--color3);
+}
+
+.dicionario h2{
+    color: var(--color1);
+}
+
+.text form {
+    font-weight: bold;
+}
+
+.text form::before{
+    content: 'palavra: ';
+    color: var(--color1);
+}
+.text entry {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.text sense {
+    color: var(--color1);
+}
+
+.text def {
+    color: var(--color3);
+}
