@@ -1,8 +1,11 @@
 import React from 'react'
 import styles from './perfil.module.css'
 
+import { useAuthentication } from '../../hooks/useAuthentication'
+
 const Perfil = () => {
 
+  const { logout } = useAuthentication()
 
   return (
     <div className={styles.perfil}>
@@ -11,7 +14,7 @@ const Perfil = () => {
           <i className="fa-solid fa-user"></i>
             <h2>DASHBOARD</h2>
             <p>Caminho Digital da Bíblia</p>
-            <button className='btn btnP'>SAIR</button>
+            <button className='btn btnP' onClick={logout}>SAIR</button>
           </div>
 
         <sectopm className={styles.perfil_dashboard}>

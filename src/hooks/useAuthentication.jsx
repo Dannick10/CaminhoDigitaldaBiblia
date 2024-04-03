@@ -63,6 +63,13 @@ export const useAuthentication = () => {
         SetLoading(false)
     }
 
+    const logout = () => {
+        checkiFisCancelled()
+
+        signOut(auth)
+
+    }
+
     useEffect(()=>{
         return () => SetCancelled(true)
     },[])
@@ -71,7 +78,8 @@ export const useAuthentication = () => {
         auth,
         createUser,
         error,
-        loading
+        loading,
+        logout
     }
 
 }
