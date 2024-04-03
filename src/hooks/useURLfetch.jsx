@@ -32,5 +32,6 @@ export const useURLfetch = (url) => {
         };
     }, [url]);
 
+
     return { data, loading, error };
 };

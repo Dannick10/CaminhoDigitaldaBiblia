@@ -6,6 +6,7 @@ import DicionarioComponent from './DicionarioComponent'
 const Books = ({bookTitle,bookText}) => {
 
   const [visibility,SetVisibility] = useState(true)
+  const [dicionarioView,SetdicionarioView] = useState(false)
 
   const [velAudio, SetVelAudio] = useState(1)
   const [audioMenu,SetAudioMenu] = useState(false)
@@ -61,8 +62,6 @@ const Books = ({bookTitle,bookText}) => {
   const handleDicionario = (e) => {
     let word = e.toLowerCase()
     let regexWord = word.replace(/[\[\].!'@,><|://\\;&*()_+=]/g, "")
-      console.log(regexWord)
-  
       SetdicionarioSearch(regexWord)
   }
 
@@ -100,7 +99,7 @@ const Books = ({bookTitle,bookText}) => {
                   <i className="fa-solid fa-microphone" onClick={handleMenu}></i></span>
               </div>
 
-                 <span className={styles.button_acces}>
+                 <span className={styles.button_acces} onClick={()=>{dicionarioView?SetdicionarioView(false):SetdicionarioView(true)}}>
                 <i className="fa-solid fa-book-open">
                   </i></span>
                 
@@ -149,10 +148,11 @@ const Books = ({bookTitle,bookText}) => {
           :<div className={styles.choose}><h1>Escolha um livro e deixe a Palavra iluminar o seu dia.</h1></div>}
           </aside>
             
-      
+            {dicionarioView && <>
           {bookText && <>
          <DicionarioComponent url={URL_dicionario}/>   
           </>}
+            </>}
 
     </main>
   )
