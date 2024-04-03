@@ -159,7 +159,7 @@ font-weight: 500;
    border-radius: .3em;
 }
 
-.form input[type="submit"]{
+.form input[type="submit"],.btn{
     padding: .5em 3em;
     font-weight: bold;
     background-color: var(--color1);
@@ -261,10 +261,15 @@ font-weight: bold;
 letter-spacing: .1em;
 }
 
-input[type="submit"].disabled_btn {
+input[type="submit"].disabled_btn,.btn.disabled {
 background-color: var(--color4);
 }
 
+.btnP {
+    background-color: var(--color3);
+    color: var(--color4);
+    border-radius: .2em;
+}
 
 @media screen and (max-width: 800px) {
     
