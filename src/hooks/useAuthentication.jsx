@@ -1,3 +1,4 @@
+import { setLogLevel } from 'firebase/app'
 import { db } from '../../firebase/config'
 
 import {
@@ -67,7 +68,32 @@ export const useAuthentication = () => {
         checkiFisCancelled()
 
         signOut(auth)
+    }
 
+    const login = async (data) => {
+        checkiFisCancelled()
+
+        SetLoading(true)
+        SetError(false)
+
+        try {
+            await signInWithEmailAndPassword(auth, data.email, data.password)
+            SetLoading(false)
+        } catch (error) {
+
+            let systemErrorMessage
+
+            if(error.message.includes("user-not-found")){
+                systemErrorMessage = 'Usuario não encontrado'
+            } else if(error.message.includes('wrong-password')){
+                systemErrorMessage = 'Senha incorreta'
+            } else {
+                systemErrorMessage = 'ocorreu um erro, por favor tente mais tarde.'
+            }
+
+            SetError(systemErrorMessage)
+            SetLoading(false)
+        }
     }
 
     useEffect(()=>{
@@ -79,7 +105,8 @@ export const useAuthentication = () => {
         createUser,
         error,
         loading,
-        logout
+        logout,
+        login
     }
 
 }

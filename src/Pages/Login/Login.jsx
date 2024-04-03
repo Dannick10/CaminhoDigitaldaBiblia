@@ -1,23 +1,65 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Login.module.css'
 import { useAuthentication } from '../../hooks/useAuthentication'
 
 const Login = () => {
 
+  const [email,SetEmail] = useState('')
+  const [password,SetPassword] = useState('')
+  const [error,SetError] = useState('')
+
+  const {login, error: authError, loading} = useAuthentication()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    SetError('')
+
+    const user = { 
+      email,
+      password,
+    }
+
+    const res = await login(user)
+
+    console.log(user)
+
+  }
+
+  useEffect(()=>{
+    if(authError) {
+      SetError(authError)
+    }
+  },[authError])
+
   const [viewpassword,SetViewPassword] = useState('password')
 
   return (
-    <div className='register'>
+    <div className='register' onSubmit={handleSubmit}>
           <h1>Entre na conta</h1>
          <section className='register_main'>  
            <form className='form login'>
+
              <label>
                <span>Email</span>
-               <input type="email" placeholder='endereço de email' required/>
+               <input
+               type="email" 
+               placeholder='endereço de email' 
+               required
+               value={email}
+               onChange={(e)=>{SetEmail(e.target.value)}}
+               />
              </label>
              <label>
+              
                <span>Senha</span>
-               <input type={viewpassword == 'password'?'password':'text'} placeholder='senha' required  />
+               <input 
+               type={viewpassword == 'password'?'password':'text'} 
+               placeholder='senha' 
+               required  
+               value={password}
+               onChange={(e)=>SetPassword(e.target.value)}
+               />
                
                <div className='visible'>
                 {viewpassword == 'password'?(
@@ -27,9 +69,22 @@ const Login = () => {
                 )}
                 </div>
              </label>
+             
              <label>
-              <input className='btn' type="submit" value="Entrar" />
+              {!loading && (
+                <input className='btn' type="submit" value="Cadastrar" />
+              )}
+              {loading &&(
+              <input className='disabled_btn' type="submit" value="Aguarde" />
+              )}
+
              </label>
+             {error && (
+              <div className='error'>
+                {error}
+              </div>
+             )}
+
            </form>
            <div className='form showcase'>
              <div className='showcase_text'>
