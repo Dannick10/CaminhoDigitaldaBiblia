@@ -5,7 +5,7 @@ import DicionarioComponent from './DicionarioComponent'
 
 const Books = ({bookTitle,bookText}) => {
 
-  const [visibility,SetVisibility] = useState(false)
+  const [visibility,SetVisibility] = useState(true)
 
   const [velAudio, SetVelAudio] = useState(1)
   const [audioMenu,SetAudioMenu] = useState(false)
@@ -83,6 +83,7 @@ const Books = ({bookTitle,bookText}) => {
         </section>
 
         {!bookTitle == '' && (<>
+          {visibility && (<span className='dicionary'><i className="fa-solid fa-book-open"></i></span>)}
           {audioMenu && (
 
             <div className={styles.audiocontrol}>
@@ -120,7 +121,7 @@ const Books = ({bookTitle,bookText}) => {
           :<div className={styles.choose}><h1>Escolha um livro e deixe a Palavra iluminar o seu dia.</h1></div>}
           </aside>
             
-          {visibility && (<span></span>)}
+      
           {bookText && <>
          <DicionarioComponent url={URL_dicionario}/>   
           </>}

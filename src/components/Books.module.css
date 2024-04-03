@@ -35,6 +35,22 @@
 input,label div,button,textarea {
     user-select:none
 }
+
+span i {
+    font-size: 1.8em;
+    color: var(--color3);
+    background-color: var(--color1);
+    padding: .2em;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: .2em;
+    position: fixed;
+    right: 0.2em;
+    top: 5em;
+}
+
+
+
 @media screen and (max-width:800px) {
     .book_section {
         width:100%
