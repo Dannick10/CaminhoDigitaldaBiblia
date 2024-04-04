@@ -34,6 +34,7 @@
 
 .text sense {
     color: var(--color1);
+    padding: 0 .4em;
 }
 
 .text def {
