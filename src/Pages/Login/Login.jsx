@@ -72,7 +72,7 @@ const Login = () => {
              
              <label>
               {!loading && (
-                <input className='btn' type="submit" value="Cadastrar" />
+                <input className='btn' type="submit" value="Entrar" />
               )}
               {loading &&(
               <input className='disabled_btn' type="submit" value="Aguarde" />

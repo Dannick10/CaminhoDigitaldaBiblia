@@ -140,7 +140,7 @@ input,label div,button,textarea {
         position: static;
         border-bottom: 0x solid var(--color1);
         font-weight: 400;
-      
+        padding: 0;
       }
 
       .letters:hover::after{
