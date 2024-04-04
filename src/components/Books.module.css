@@ -92,6 +92,10 @@ input,label div,button,textarea {
     padding: .2em .2em;
 }
 
+.letters:active{
+  color: var(--color1);
+}
+
 .letters::after{
     content: '';
     width: .3em;
@@ -127,6 +131,37 @@ input,label div,button,textarea {
         justify-content:flex-start;
         font-size:.8em
     }
+
+    .letters:active{
+        color: var(--color1);
+      }
+
+      .letters:hover{
+        position: static;
+        border-bottom: 0x solid var(--color1);
+        font-weight: 400;
+      
+      }
+
+      .letters:hover::after{
+       visibility: hidden;
+    }
+
+    .letters:active{
+        position: relative;
+        font-weight: 600;
+        border-bottom: 2px solid var(--color1);
+        padding: .2em .2em;
+        transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+         bottom: 0em;
+      }
+      
+      .letters:active::after{
+        visibility: visible;
+        bottom: 1.3em;
+     
+    }
+      
 }
 .book_title {
     display: flex;
@@ -170,3 +205,4 @@ cursor: pointer;
 .speed::after{
     content: 'x';
 }
+
