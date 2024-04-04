@@ -94,6 +94,7 @@ input,label div,button,textarea {
 
 .letters:active{
   color: var(--color1);
+  bottom: 0em;
 }
 
 .letters::after{

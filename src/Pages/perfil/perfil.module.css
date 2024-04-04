@@ -42,14 +42,20 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 2em;
     color: var(--color3);
-    background-color: var(--color1);
-    
+    background-color: var(--color1); 
+    gap: 3em;
 }
-.perfil_info button{
-   margin-top: 5em;
+
+.perfil_info div{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+
 }
 
 .perfil_info i {
