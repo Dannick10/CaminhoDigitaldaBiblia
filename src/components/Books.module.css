@@ -77,6 +77,38 @@ input,label div,button,textarea {
     cursor: pointer;
 }
 
+.letters{
+    cursor: pointer; 
+    position: relative;
+    border-bottom: 0px solid var(--color1);
+    transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.letters:hover {
+    position: relative;
+    bottom: .3em;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color1);
+    padding: .2em .2em;
+}
+
+.letters::after{
+    content: '';
+    width: .3em;
+    height: .3em;
+    background-color: var(--color1);
+    position: absolute;
+    border-radius: 50em;
+    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    bottom: 0.1em;
+    visibility: hidden;
+}
+
+.letters:hover::after{
+    visibility: visible;
+    bottom: 1.3em;
+}
+
 
 @media screen and (max-width:800px) {
     .book_section {

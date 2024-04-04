@@ -60,7 +60,7 @@ const Header = () => {
                 <li>
                   <NavLink to="/perfil">PERFIL</NavLink>
                 </li>
-              </>}
+              </>}           
             </ul>
           </div>
           {checked && (
