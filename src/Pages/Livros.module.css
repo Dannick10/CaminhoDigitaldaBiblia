@@ -5,7 +5,7 @@ position: relative;
 .chaptesnumber{
   width: 100%;
   margin: auto;
-
+ z-index: 3;
 }
 
 .bookNumber{

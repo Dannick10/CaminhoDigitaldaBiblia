@@ -43,7 +43,7 @@ const Books = ({bookTitle,bookText}) => {
   let msg = new SpeechSynthesisUtterance()
   
   const handleVoice = () => {
-    let textBible = bookText.map((e)=>e.text)
+    let textBible = bookText.map((e)=>e.text.split(' '))
     let voices = synth.getVoices()
     if(voices.length !== 0) {
       msg.voice = voices.find((v)=> v.lang == 'pt-BR')
@@ -63,6 +63,11 @@ const Books = ({bookTitle,bookText}) => {
     let word = e.toLowerCase()
     let regexWord = word.replace(/[\[\].!'@,><|://\\;&*()_+=]/g, "")
       SetdicionarioSearch(regexWord)
+  }
+
+  const markdown = (e) => {
+    let text = e.target.parentNode.parentNode
+    console.log(text.textContent)
   }
 
   return (
@@ -142,7 +147,10 @@ const Books = ({bookTitle,bookText}) => {
           {bookText?bookText.map((e,o)=>(
             <div className={styles.book_read}>
               <div className={styles.verse}></div>
-              <div key={o} className={styles.text}><span className={styles.versesDetail}>{e.verse}.</span><span> {e.text.split(' ').map((e)=>(<span onClick={(e)=>{handleDicionario(e.target.textContent)}} className={styles.letters}>{e} </span>))}</span></div>
+                <div key={o} className={styles.text}>
+                  <span className={styles.versesDetail}><i class="fa-solid fa-bookmark" 
+                  onClick={(e)=>{markdown(e)}}></i> {e.verse}.</span>
+                    <span> {e.text.split(' ').map ((e)=>(<span onClick={(e)=>{handleDicionario(e.target.textContent)}} className={styles.letters}>{e} </span>))}</span></div>
             </div>
           ))
           :<div className={styles.choose}><h1>Escolha um livro e deixe a Palavra iluminar o seu dia.</h1></div>}
