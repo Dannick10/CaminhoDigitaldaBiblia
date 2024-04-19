@@ -61,6 +61,13 @@ const Header = () => {
                   <NavLink to="/perfil">PERFIL</NavLink>
                 </li>
               </>}           
+                
+
+              {user && <>
+                <li>
+                  <NavLink to="/blog">BLOG</NavLink>
+                </li>
+              </>}           
             </ul>
           </div>
           {checked && (
@@ -97,7 +104,14 @@ const Header = () => {
                   <NavLink to="/perfil">PERFIL</NavLink>
                 </li>
               </>}
-                </ul>
+
+              {user && <>
+                <li>
+                  <NavLink to="/blog">BLOG</NavLink>
+                </li>
+              </>}           
+            </ul>
+
               </div>
             </div>
           </div>

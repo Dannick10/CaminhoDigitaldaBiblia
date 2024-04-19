@@ -1,0 +1,51 @@
+.blog{
+    padding-top: 8em;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: 100vh;
+}
+
+.text textarea {
+    max-width: 35em;
+    max-height: 6em;
+    min-width: 35em;
+    min-height: 6em;
+    padding: .2em;
+    border: none;
+   filter: drop-shadow(0px 0px 1.3px var(--color4));
+}
+
+.text textarea:focus{
+    outline: none;
+}
+.text_title{
+    color: var(--color3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    background-color: var(--color4);
+    font-weight: normal;
+    user-select: none;
+    border-radius: .2em .2em 0 0;
+}
+
+.send_text{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    padding-right: 0.1em;
+}
+
+.send_text button{
+    border: none;
+    background-color: var(--color4);
+    color: var(--color3);
+    padding: .2em 3em;
+    cursor: pointer;
+}
+
+.post{
+    margin-top: 5em;
+}
