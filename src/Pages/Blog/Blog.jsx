@@ -9,7 +9,7 @@ const Blog = () => {
   const [text,SetText] = useState('')
   const [error,setError] = useState('')
   
-  const {insertDocument, response } = useInsertDocument('POST') 
+  const {insertDocument, response} = useInsertDocument('posts')
   const { user } = useAuthValue()
  
 
@@ -17,6 +17,12 @@ const Blog = () => {
     e.preventDefault()
     setError('')
     SetText('')
+
+    if (!text) {
+      setError("Por favor, preencha todos os campos!");
+    }
+
+    if(error) return
 
     insertDocument({
       text,
@@ -39,15 +45,24 @@ const Blog = () => {
           <textarea 
           cols="30" 
           rows="10" 
+          minLength={3}
           maxLength={300}
           value={text}
           onChange={(e)=>SetText(e.target.value)}
           placeholder='escreva seu post'
           ></textarea>
           <div className={style.send_text}>
+            {!response.loading && (
           <button onClick={handleSubmit}> 
             <i class="fa-solid fa-share"></i>
           </button>
+            )}
+
+          {response.loading && (
+          <button className={style.invisible}> 
+            <i class="fa-solid fa-share"></i>
+          </button>
+          )}
           </div>
         </form>
       </div>

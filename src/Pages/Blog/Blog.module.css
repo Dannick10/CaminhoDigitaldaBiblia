@@ -49,3 +49,8 @@
 .post{
     margin-top: 5em;
 }
+
+button.invisible{
+    cursor: default;
+ background: rgb(60, 60, 60);
+}
