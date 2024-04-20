@@ -65,7 +65,7 @@ const Header = () => {
 
               {user && <>
                 <li>
-                  <NavLink to="/blog">BLOG</NavLink>
+                  <NavLink to="/feed">FEED</NavLink>
                 </li>
               </>}           
             </ul>
@@ -107,7 +107,7 @@ const Header = () => {
 
               {user && <>
                 <li>
-                  <NavLink to="/blog">BLOG</NavLink>
+                  <NavLink to="/feed">FEED</NavLink>
                 </li>
               </>}           
             </ul>

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useInsertDocument } from '../../hooks/useInsertDocument'
 import { useAuthValue } from '../../Context/AuthContext'
 
-const Blog = () => {
+const Feed = () => {
 
   const [text,SetText] = useState('')
   const [error,setError] = useState('')
@@ -74,4 +74,4 @@ const Blog = () => {
   )
 }
 
-export default Blog
+export default Feed
