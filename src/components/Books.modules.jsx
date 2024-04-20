@@ -60,6 +60,7 @@ const Books = ({bookTitle,bookText}) => {
   const [dicionarioSearch,SetdicionarioSearch] = useState('')
   const URL_dicionario = `https://api.dicionario-aberto.net/word/${dicionarioSearch}`
   const handleDicionario = (e) => {
+    SetdicionarioView(true)
     let word = e.toLowerCase()
     let regexWord = word.replace(/[\[\].!'@,><|://\\;&*()_+=]/g, "")
       SetdicionarioSearch(regexWord)
@@ -148,8 +149,7 @@ const Books = ({bookTitle,bookText}) => {
             <div className={styles.book_read}>
               <div className={styles.verse}></div>
                 <div key={o} className={styles.text}>
-                  <span className={styles.versesDetail}><i class="fa-solid fa-bookmark" 
-                  onClick={(e)=>{markdown(e)}}></i> {e.verse}.</span>
+                  <span className={styles.versesDetail}>{e.verse}.</span>
                     <span> {e.text.split(' ').map ((e)=>(<span onClick={(e)=>{handleDicionario(e.target.textContent)}} className={styles.letters}>{e} </span>))}</span></div>
             </div>
           ))

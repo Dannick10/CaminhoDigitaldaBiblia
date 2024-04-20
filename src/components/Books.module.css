@@ -46,6 +46,7 @@ input,label div,button,textarea {
     align-items: center;
     gap: .2em;
     transition: 0.6s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    z-index: 2;
     }
 
 .acessibility i:not(.menuAcess i) {
@@ -84,35 +85,20 @@ input,label div,button,textarea {
     transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.letters:hover {
+.letters:active{
     position: relative;
-    bottom: .3em;
     font-weight: 600;
     border-bottom: 2px solid var(--color1);
-    padding: .2em .2em;
-}
+    transition: .1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+     bottom: 0em;
+  }
+  
 
 .letters:active{
   color: var(--color1);
   bottom: 0em;
 }
 
-.letters::after{
-    content: '';
-    width: .3em;
-    height: .3em;
-    background-color: var(--color1);
-    position: absolute;
-    border-radius: 50em;
-    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    bottom: 0.1em;
-    visibility: hidden;
-}
-
-.letters:hover::after{
-    visibility: visible;
-    bottom: 1.3em;
-}
 
 
 @media screen and (max-width:800px) {
@@ -137,23 +123,11 @@ input,label div,button,textarea {
         color: var(--color1);
       }
 
-      .letters:hover{
-        position: static;
-        border-bottom: 0x solid var(--color1);
-        font-weight: 400;
-        padding: 0;
-      }
-
-      .letters:hover::after{
-       visibility: hidden;
-    }
-
     .letters:active{
         position: relative;
         font-weight: 600;
         border-bottom: 2px solid var(--color1);
-        padding: .2em .2em;
-        transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: .1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
          bottom: 0em;
       }
       
