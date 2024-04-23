@@ -3,6 +3,7 @@ import style from './Blog.module.css'
 import { useState } from 'react'
 import { useInsertDocument } from '../../hooks/useInsertDocument'
 import { useAuthValue } from '../../Context/AuthContext'
+import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 
 const Feed = () => {
 
@@ -11,7 +12,8 @@ const Feed = () => {
   
   const {insertDocument, response} = useInsertDocument('posts')
   const { user } = useAuthValue()
- 
+  const { documents: posts, loading} = useFetchDocuments('posts')
+  console.log(posts)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -37,7 +39,7 @@ const Feed = () => {
       <div className={style.text}>
         <div className={style.text_title}>
             <p> Atualize o blog</p>
-          <i class="fa-solid fa-paper-plane"></i>
+          <i className="fa-solid fa-paper-plane"></i>
           <p>{user.displayName}</p>
         </div>
         <form onSubmit={handleSubmit}>
@@ -54,21 +56,20 @@ const Feed = () => {
           <div className={style.send_text}>
             {!response.loading && (
           <button onClick={handleSubmit}> 
-            <i class="fa-solid fa-share"></i>
+            <i className="fa-solid fa-share"></i>
           </button>
             )}
 
           {response.loading && (
           <button className={style.invisible}> 
-            <i class="fa-solid fa-share"></i>
+            <i className="fa-solid fa-share"></i>
           </button>
           )}
           </div>
         </form>
       </div>
       <div className={style.post}>
-        <div>Ainda não tem posts aqui</div>
-        
+          {loading && (<dov></dov>)}
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link, Navigate } from 'react-router-dom';
 import styles from './Home.module.css'
 
 const Home = () => {
