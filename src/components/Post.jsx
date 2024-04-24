@@ -13,7 +13,6 @@ const [hour,Sethour] = useState(0)
                 <p>{post.name}</p>
             <span onMouseEnter={()=>Sethour(hour?0:1)} onMouseLeave={()=>Sethour(hour?0:1)}>{date[hour]}</span>
             </div>
- 
 
             <p>{post.text}</p>
 
