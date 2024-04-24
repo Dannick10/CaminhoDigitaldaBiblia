@@ -1,0 +1,16 @@
+.post{
+margin: 2em;
+}
+
+.profile{
+display: flex;
+justify-content: space-between;
+}
+
+.profile span{
+    font-size: 0.8em;
+    width: 7em;
+    text-align: center;
+    color: var(--color1);
+    font-weight: bold;
+}

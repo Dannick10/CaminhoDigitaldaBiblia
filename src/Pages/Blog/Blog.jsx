@@ -1,9 +1,12 @@
-import React from 'react'
 import style from './Blog.module.css'
 import { useState } from 'react'
+
 import { useInsertDocument } from '../../hooks/useInsertDocument'
-import { useAuthValue } from '../../Context/AuthContext'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
+
+import { useAuthValue } from '../../Context/AuthContext'
+
+import Post from '../../components/Post'
 
 const Feed = () => {
 
@@ -69,7 +72,15 @@ const Feed = () => {
         </form>
       </div>
       <div className={style.post}>
-          {loading && (<dov></dov>)}
+          {loading && (<div className='loadingBooks'></div>)}
+          {posts && posts.length == 0 && (<><p>Sem posts no momento.</p></>)}
+          {posts && posts.map((post)=>(
+            <>
+              <div className='post'>
+              <Post post={post}/>
+              </div>
+            </>
+          ))}
       </div>
     </div>
   )
