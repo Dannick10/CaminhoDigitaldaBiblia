@@ -1,11 +1,14 @@
+.post_container{
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.288);
+}
+
 .post{
-margin: 2em;
 display: flex;
 flex-direction: column;
 gap: 1em;
 padding: 0.2em 0.5em;
 justify-content: center;
-box-shadow: 1px 1px 2px rgba(0, 0, 0,0.2);
+height: 8em;
 }
 
 .profile{
@@ -13,11 +16,75 @@ display: flex;
 justify-content: space-between;
 }
 
+.name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.post_text{
+    padding-left: 5em;
+}
+
 .profile span{
-    font-size: 0.8em;
+    font-size: 0.7em;
     width: 7em;
     text-align: center;
     color: var(--color1);
     font-weight: bold;
+    position: block;
+    float: right;
 }
 
+.interact ul{
+    border-top: 2px solid rgba(201, 195, 195, 0.288);;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.interact li{
+display: flex;
+align-items: center;
+justify-content: center;
+padding: .2em;
+gap: 1em;
+color: var(--color4);
+font-weight: 600;
+}
+
+
+.interact li:hover{
+    filter: brightness(120%);
+    cursor: pointer;
+}
+
+.interact svg{
+width: 1em;
+height: 1em;
+}
+
+.interact{
+    margin-bottom: 5em;
+}
+
+.comment{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.8em;
+    padding: 1em 0;
+    gap: 1em;
+}
+
+.comment input{
+   border: 1px solid rgba(134, 134, 134, 0.288);
+   background-color: rgba(12, 12, 12, 0.014);
+   border-radius: .5em;
+    padding: 0.2em;
+    width: 80%;
+    height: 1.5em;
+}

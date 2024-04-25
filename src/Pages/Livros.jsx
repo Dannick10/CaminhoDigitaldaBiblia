@@ -62,7 +62,10 @@ const Livros = () => {
 
             <div className={styles.controls}>
 
-              <div className={styles.left} style={bookChapter==1 ?{opacity:'0.3', pointerEvents:'none'}:{opacity:'1'}}><i className="fa-solid fa-chevron-left" onClick={()=>{SetBookChapter(bookChapter - 1),scrollTo(0,0)}}></i></div>
+              <div className={styles.left} style={bookChapter==1 ?{opacity:'0.3', pointerEvents:'none'}:{opacity:'1'}}>
+                <i className="fa-solid fa-chevron-left" onClick={()=>{SetBookChapter(bookChapter - 1),scrollTo(0,0)}}></i>
+                
+                </div>
          
               <div>{bookChapter}</div>
             <div className={styles.right} style={chapterSize == bookChapter?{opacity:'0.3',pointerEvents:'none'}:{opacity:'1'}}><i className="fa-solid fa-chevron-right" onClick={()=>{SetBookChapter(bookChapter + 1), scrollTo(0,0)}}></i></div>

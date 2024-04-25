@@ -47,10 +47,16 @@
 }
 
 .post{
-    margin-top: 5em;
+    width: 60%;
 }
 
 button.invisible{
     cursor: default;
  background: rgb(60, 60, 60);
+}
+
+@media screen and (max-width: 600px) {
+    .post{
+        width: 100%;
+    }
 }

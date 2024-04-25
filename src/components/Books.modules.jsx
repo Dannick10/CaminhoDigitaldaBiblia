@@ -52,7 +52,6 @@ const Books = ({bookTitle,bookText}) => {
       msg.text = textBible
       msg.lang = 'pt-BR'
       synth.speak(msg)
-      handleList(msg.text)
     }
   
   }
@@ -87,7 +86,7 @@ const Books = ({bookTitle,bookText}) => {
               <div className={styles.menuAcess}>
               
               {visibility && <>
-                <span>
+                <span> 
                 <i class="fa-solid fa-chevron-right" onClick={()=>SetVisibility(false)}></i>
                   </span>
               </>}

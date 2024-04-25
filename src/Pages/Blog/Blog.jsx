@@ -16,7 +16,6 @@ const Feed = () => {
   const {insertDocument, response} = useInsertDocument('posts')
   const { user } = useAuthValue()
   const { documents: posts, loading} = useFetchDocuments('posts')
-  console.log(posts)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -76,7 +75,7 @@ const Feed = () => {
           {posts && posts.length == 0 && (<><p>Sem posts no momento.</p></>)}
           {posts && posts.map((post)=>(
             <>
-              <div className='post'>
+              <div className={style.post_blog}>
               <Post post={post}/>
               </div>
             </>
