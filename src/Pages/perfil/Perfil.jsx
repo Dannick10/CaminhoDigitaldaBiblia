@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from './perfil.module.css'
 
+import IconProfile from '../../components/iconProfile'
+
 import { useAuthentication } from '../../hooks/useAuthentication'
 import { useAuthValue} from '../../Context/AuthContext'
 
@@ -14,7 +16,7 @@ const Perfil = () => {
           <div className={styles.perfil_info}>
 
           <div>
-            <i className="fa-solid fa-user"></i>
+            <IconProfile icon={user.displayName} size={2} background={'var(--color3)'} color={'var(--color1)'} font={2}/>
             <h2>{user.displayName}</h2>
           </div>
 
