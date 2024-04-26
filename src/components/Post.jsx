@@ -5,7 +5,7 @@ import IconProfile from './iconProfile'
 import { useAuthValue } from '../Context/AuthContext'
 
 const Post = ({post}) => {
-
+  console.log(post)
   const { user } = useAuthValue()
 
   const [date,SetData] = useState(new Date(post.createdAt.seconds*1000).toLocaleString('pt-br').split(','))
@@ -18,7 +18,7 @@ const Post = ({post}) => {
      <div className={styles.post}>
              <div className={styles.profile}>
                <div className={styles.name}>
-                 <IconProfile  icon={user.displayName} size={1.8}/>
+                 <IconProfile  icon={post.name} size={1.8}/>
                    <div>
                      <p>{post.name}</p>
                      <span onMouseEnter={()=>Sethour(hour?0:1)} onMouseLeave={()=>Sethour(hour?0:1)}>{date[hour]}</span>

@@ -7,7 +7,7 @@ const IconProfile = ({icon,size}) => {
 
   return (
     <div className={style.iconProfile} style={{width:`${size}em`, height:`${size}em`}}>
-      {name.map((e)=> e)}
+      {name.map((e)=> e )}
     </div>
   )
 }
