@@ -106,3 +106,27 @@ height: 1em;
     right: 1em;
     border-radius: 0 2em 2em 0;
 }
+
+.comments{
+    display: flex;
+    margin-bottom: 0.5em;
+    padding: 1em 0.8em;
+    gap: 1em;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.226);
+    background-color: rgba(221, 221, 221, 0.13);
+}
+
+.text_comment{
+
+    padding: 0.2em 0.5em;
+    border-radius: .3em;
+}
+
+.comment_aside{
+    width: 100%;
+}
+
+.comment_aside p{
+    font-size: 0.8em;
+}
+

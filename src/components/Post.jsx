@@ -38,7 +38,7 @@ const Post = ({post}) => {
       comment,
       uid: user.uid,
       name: user.displayName,
-      post: post.id
+      post: post.id,
     })
 
   }
@@ -99,12 +99,20 @@ const Post = ({post}) => {
               {loading && (<div className='loadingBooks'></div>)}
           
                {commentsUser && (
-                commentsUser.map((c)=>(
+                commentsUser.map((c,i)=>(
                   <>
-                    {c.post == post.id&& (<>
-                      <div className={styles.comments}>
+                    {c.post == post.id && (<>
+                      <div className={styles.comments} key={i}>
+                    <div className={styles.profile_comments}>
+                    <IconProfile  icon={c.name} size={1}/>
+                    </div>
 
-                    {c.comment}
+                      <div className={styles.comment_aside}>
+                        <p>{c.name}</p>
+                          <div className={styles.text_comment}>
+                        <p>{c.comment}</p>
+                        </div>
+                      </div>
 
                       </div>
                     </>)}
