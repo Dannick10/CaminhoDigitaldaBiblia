@@ -88,3 +88,21 @@ height: 1em;
     width: 80%;
     height: 1.5em;
 }
+
+.form{
+    display: flex;
+    width: 100%;
+
+}
+
+.form input[type="submit"]{
+    cursor: pointer;
+    width: 3em;
+    height: 2.1em;
+    background-color: var(--color3);
+    color: var(--color4);
+    font-weight: bold;
+    position: relative;
+    right: 1em;
+    border-radius: 0 2em 2em 0;
+}

@@ -2,14 +2,47 @@ import React, { useState } from 'react'
 import styles from './Post.module.css'
 import IconProfile from './iconProfile'
 
+import { useInsertDocument } from '../hooks/useInsertDocument'
+import { useFetchDocuments } from '../hooks/useFetchDocuments'
+
 import { useAuthValue } from '../Context/AuthContext'
 
 const Post = ({post}) => {
-  console.log(post)
+ 
+
+  const { insertDocument, response } = useInsertDocument('comments')
+  const { insertDocument:like, response:res } = useInsertDocument('like')
+
+  const { documents: commentsUser, loading } = useFetchDocuments('comments')
+
   const { user } = useAuthValue()
 
   const [date,SetData] = useState(new Date(post.createdAt.seconds*1000).toLocaleString('pt-br').split(','))
   const [hour,Sethour] = useState(0)
+
+  const [comment,SetComment] = useState('')
+  const [error,Seterror] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    Seterror('')
+    SetComment('')
+
+    if(!comment){
+      Seterror('Preenche o campo')
+    }
+
+    if(error)return
+
+    insertDocument({
+      comment,
+      uid: user.uid,
+      name: user.displayName,
+      post: post.id
+    })
+
+  }
+
 
 
   return (
@@ -24,7 +57,12 @@ const Post = ({post}) => {
                      <span onMouseEnter={()=>Sethour(hour?0:1)} onMouseLeave={()=>Sethour(hour?0:1)}>{date[hour]}</span>
                    </div>
                </div>
-               ...
+              {user.uid == post.uid && (<>
+              <div className={styles.controls}>
+               <span><i className="fa-solid fa-ellipsis"></i></span>
+              </div>
+              </>)}
+
              </div>
 
              <div className={styles.post_text}>
@@ -49,9 +87,32 @@ const Post = ({post}) => {
      
               <div className={styles.comment}>
               <IconProfile icon={user.displayName} size={1}/>
-               <input type="text" placeholder='Comente...'/>
-              </div>
+            <form onSubmit={handleSubmit} className={styles.form}>
+               <input type="text"
+               placeholder='Comente...'
+               value={comment}
+               onChange={(e)=>SetComment(e.target.value)}/>
+               <input type="submit" value="➤" />
+            </form>
+
              </div>
+              {loading && (<div className='loadingBooks'></div>)}
+          
+               {commentsUser && (
+                commentsUser.map((c)=>(
+                  <>
+                    {c.post == post.id&& (<>
+                      <div className={styles.comments}>
+
+                    {c.comment}
+
+                      </div>
+                    </>)}
+                  </>
+                ))
+               )}
+
+              </div>
    </div>
     </>
   )
