@@ -32,7 +32,7 @@ const Perfil = () => {
 
           </div>
 
-        <sectopm className={styles.perfil_dashboard}>
+        <section className={styles.perfil_dashboard}>
 
           <ul>
             <li>
@@ -53,7 +53,7 @@ const Perfil = () => {
               </Link>
 
           </ul>
-        </sectopm>
+        </section>
     </div>
   )
 }

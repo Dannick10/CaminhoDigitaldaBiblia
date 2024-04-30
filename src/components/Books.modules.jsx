@@ -145,7 +145,7 @@ const Books = ({bookTitle,bookText}) => {
         <aside className={styles.book_read} id='read'>
 
           {bookText?bookText.map((e,o)=>(
-            <div className={styles.book_read}>
+            <div className={styles.book_read} key={o}>
               <div className={styles.verse}></div>
                 <div key={o} className={styles.text}>
                   <span className={styles.versesDetail}>{e.verse}.</span>

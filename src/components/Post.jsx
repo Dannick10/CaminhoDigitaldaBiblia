@@ -7,7 +7,7 @@ import { useFetchDocuments } from '../hooks/useFetchDocuments'
 
 import { useAuthValue } from '../Context/AuthContext'
 
-const Post = ({post}) => {
+const Post = ({post,perfil}) => {
  
 
   const { insertDocument, response } = useInsertDocument('comments')
@@ -47,7 +47,7 @@ const Post = ({post}) => {
   return (
     <>
    <div className={styles.post_container}>  
-     <div className={styles.post}>
+     <div className={styles.post} key={post.id}>
              <div className={styles.profile}>
                <div className={styles.name}>
 
@@ -70,7 +70,9 @@ const Post = ({post}) => {
 
 
          </div>
+
              <div className={styles.interact}>
+         {!perfil && (<>
               <ul>
                <li>
                <i className="fa-regular fa-heart"></i>
@@ -94,6 +96,7 @@ const Post = ({post}) => {
             </form>
 
              </div>
+               </>)}
               {loading && (<div className='loadingBooks'></div>)}
           
                {commentsUser && (
