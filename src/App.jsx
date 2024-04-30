@@ -17,6 +17,7 @@ import Register from './Pages/Register/Register'
 import Login from './Pages/Login/Login'
 import Perfil from './Pages/perfil/Perfil'
 import Feed from './Pages/Blog/Blog'
+import Mypost from './Pages/Mypost/Mypost'
 
 function App() {
   
@@ -49,6 +50,7 @@ function App() {
         <Route path='/register' element={!user ? <Register/> : <Navigate to="/"/>}/>
         <Route path='/perfil' element={user ? <Perfil/>: <Navigate to="/register"/>}/>
         <Route path='/feed' element={user ? <Feed/>: <Navigate to="/register"/>}/>
+        <Route path='/mypost' element={user ? <Mypost/>: <Navigate to="/register"/>}/>
       </Routes>
      </BrowserRouter>
       </AuthProvider>

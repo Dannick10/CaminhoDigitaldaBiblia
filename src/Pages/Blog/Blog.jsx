@@ -31,7 +31,8 @@ const Feed = () => {
     insertDocument({
       text,
       uid: user.uid,
-      name: user.displayName
+      name: user.displayName,
+      like: 0
     })
    
   }

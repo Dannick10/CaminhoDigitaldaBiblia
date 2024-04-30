@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './perfil.module.css'
+import { Link } from 'react-router-dom'
 
 import IconProfile from '../../components/iconProfile'
 
@@ -44,10 +45,12 @@ const Perfil = () => {
               <p>Históricos</p>
               </li>
 
+              <Link to="/mypost">
               <li>
               <i className="fa-solid fa-table-columns"></i>
-              <p>Postagens</p>
+              Postagens
               </li>
+              </Link>
 
           </ul>
         </sectopm>

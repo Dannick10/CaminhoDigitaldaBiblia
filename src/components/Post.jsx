@@ -27,13 +27,13 @@ const Post = ({post}) => {
     e.preventDefault()
     Seterror('')
     SetComment('')
-
+    
     if(!comment){
       Seterror('Preenche o campo')
     }
-
+    
     if(error)return
-
+    
     insertDocument({
       comment,
       uid: user.uid,
@@ -80,13 +80,12 @@ const Post = ({post}) => {
                <li>
                <i className="fa-solid fa-share"></i>
                  Compartilhar
-                
                  </li>
      
               </ul>
      
               <div className={styles.comment}>
-              <IconProfile icon={user.displayName} size={1}/>
+                <IconProfile icon={user.displayName} size={1}/>
             <form onSubmit={handleSubmit} className={styles.form}>
                <input type="text"
                placeholder='Comente...'
@@ -104,7 +103,6 @@ const Post = ({post}) => {
                     {c.post == post.id && (<>
                       <div className={styles.comments} key={i}>
                     <div className={styles.profile_comments}>
-                    <IconProfile  icon={c.name} size={1}/>
                     </div>
 
                       <div className={styles.comment_aside}>

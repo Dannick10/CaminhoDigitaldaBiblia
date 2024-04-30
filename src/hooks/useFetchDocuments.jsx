@@ -28,9 +28,17 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
       try {
         let q;
 
-  
-          q = await query(collectionRef, orderBy("createdAt", "desc"));
-        
+      if(uid){
+        q = await query(
+          collectionRef,
+          where('uid','==', uid),
+          orderBy('createdAt','desc')
+        )
+      } else {
+
+        q = await query(collectionRef, orderBy("createdAt", "desc"));
+      }
+
 
         await onSnapshot(q, (querySnapshot) => {
           setDocuments(
@@ -40,6 +48,8 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
             }))
           );
         });
+
+
       } catch (error) {
         console.log(error);
         setError(error.message);
