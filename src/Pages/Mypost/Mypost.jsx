@@ -5,8 +5,9 @@ import { useAuthValue } from '../../Context/AuthContext'
 const Mypost = () => {
     const { user } = useAuthValue()
     const uid = user.uid
-    console.log(uid)
-    const {useFetchDocuments: posts, loading} = useFetchDocuments('posts',uid)
+    
+    const { documents: posts, loading} = useFetchDocuments('posts', null, uid)
+    
     console.log(posts)
 
   return (

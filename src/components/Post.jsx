@@ -11,7 +11,6 @@ const Post = ({post}) => {
  
 
   const { insertDocument, response } = useInsertDocument('comments')
-  const { insertDocument:like, response:res } = useInsertDocument('like')
 
   const { documents: commentsUser, loading } = useFetchDocuments('comments')
 
@@ -51,7 +50,7 @@ const Post = ({post}) => {
      <div className={styles.post}>
              <div className={styles.profile}>
                <div className={styles.name}>
-                 <IconProfile  icon={post.name} size={1.8}/>
+
                    <div>
                      <p>{post.name}</p>
                      <span onMouseEnter={()=>Sethour(hour?0:1)} onMouseLeave={()=>Sethour(hour?0:1)}>{date[hour]}</span>
