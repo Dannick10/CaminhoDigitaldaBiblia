@@ -130,3 +130,36 @@ height: 1em;
     font-size: 0.8em;
 }
 
+.controls{
+    position: relative;
+}
+
+.controls i{
+    font-weight: bold;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.option{
+    font-weight: 500;
+    color: var(--color4);
+    box-shadow: 0px 0px 2px black;
+    user-select: none;
+    cursor: pointer;
+    position: absolute;
+    top: -3.6em;
+    left: -1em;
+}
+
+.option div{
+    display: flex;  display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 6em;
+    height: 2em;
+}
+
+.option i {
+    font-size: 1em;
+    color: var(--color1);
+}

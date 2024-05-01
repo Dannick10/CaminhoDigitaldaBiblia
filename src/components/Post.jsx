@@ -22,6 +22,14 @@ const Post = ({post,perfil}) => {
   const [comment,SetComment] = useState('')
   const [error,Seterror] = useState('')
 
+  const [viewMenu, SetViewMenu] = useState(false)
+
+  if(viewMenu){
+    setTimeout(()=>{
+      SetViewMenu(false)
+    },4000)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     Seterror('')
@@ -58,7 +66,17 @@ const Post = ({post,perfil}) => {
                </div>
               {user.uid == post.uid && (<>
               <div className={styles.controls}>
-               <span><i className="fa-solid fa-ellipsis"></i></span>
+
+               <span onClick={() => SetViewMenu(!viewMenu?true:false)}>
+                  <i className="fa-solid fa-ellipsis"></i>
+              </span>
+
+            {viewMenu && (<>
+             <div className={styles.option}>
+             <div><i class="fa-solid fa-trash"></i> <p>EXCLUIR</p></div>
+               </div>
+            </>)}
+
               </div>
               </>)}
 
