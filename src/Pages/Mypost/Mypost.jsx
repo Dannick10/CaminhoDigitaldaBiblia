@@ -12,7 +12,6 @@ const Mypost = () => {
 
     const { documents: posts, loading} = useFetchDocuments('posts', null, uid)
     
-    console.log(posts)
 
   return (
     <div className={style.post}>

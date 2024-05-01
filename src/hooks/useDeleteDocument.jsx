@@ -1,7 +1,6 @@
 import { useState,useEffect,useReducer } from "react";
 import {db} from '../../firebase/config'
 import {doc, deleteDoc} from 'firebase/firestore'
-import { useFetchDocuments } from "./useFetchDocuments";
 
 const initialState = {
     loading: null,
@@ -41,8 +40,6 @@ const DeletedReduce = (state,action) => {
                         })
                         
                         try    {
-                            
-                            const { documents: commentsUser, loading } = useFetchDocuments('comments')
 
                             const deleteDocument = await deleteDoc(doc(db, docCollection,id))
 
@@ -59,7 +56,6 @@ const DeletedReduce = (state,action) => {
                             })
                             
                             console.log(error.message)
-
         }
     }
 

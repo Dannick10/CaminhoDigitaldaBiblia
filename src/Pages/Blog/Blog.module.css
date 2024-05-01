@@ -36,6 +36,7 @@
     align-items: flex-end;
     flex-direction: row-reverse;
     padding-right: 0.1em;
+    margin-bottom: 5em;
 }
 
 .send_text button{
@@ -55,8 +56,8 @@ button.invisible{
  background: rgb(60, 60, 60);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .post{
-        width: 100%;
+    width: 95%;
     }
 }
