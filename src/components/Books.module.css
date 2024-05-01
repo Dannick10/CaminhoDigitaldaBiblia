@@ -64,7 +64,6 @@ input,label div,button,textarea {
     top: 5em;
 }
 
-
 .menuAcess i{
     position: absolute;
     right: 2em;
@@ -99,6 +98,13 @@ input,label div,button,textarea {
   bottom: 0em;
 }
 
+.text i{
+    color: var(--color1);
+    font-size: 1.2em;
+    padding: 0.2em;
+    position: relative;
+    top: -.5em;
+}
 
 
 @media screen and (max-width:800px) {

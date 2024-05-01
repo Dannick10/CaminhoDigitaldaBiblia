@@ -2,8 +2,17 @@ import styles from './Books.module.css'
 import { useState, useRef, useEffect } from 'react'
 import DicionarioComponent from './DicionarioComponent'
 
+import { useFetchDocuments } from '../hooks/useFetchDocuments'
+import { useInsertDocument } from '../hooks/useInsertDocument'
+
+import { useAuthValue } from '../Context/AuthContext'
 
 const Books = ({bookTitle,bookText}) => {
+
+  const { user } = useAuthValue()
+
+  const { insertDocument, response } = useInsertDocument('book')
+
 
   const [visibility,SetVisibility] = useState(true)
   const [dicionarioView,SetdicionarioView] = useState(false)
@@ -65,10 +74,21 @@ const Books = ({bookTitle,bookText}) => {
       SetdicionarioSearch(regexWord)
   }
 
-  const markdown = (e) => {
-    let text = e.target.parentNode.parentNode
-    console.log(text.textContent)
+  const handleSaveBook = (id) => {
+ let getText = Array.from(id.target.parentNode.textContent)
+let filterTextSave = getText.filter((e)=>e != e.replace(/[^\d/.]+/g,'')).join('')
+let saveBookTitle = bookTitle.split(' ')
+
+insertDocument({
+  text: filterTextSave,
+  nameBook: saveBookTitle[0],
+  chapterBook: saveBookTitle[1],
+  user: user.uid
+})
+
+
   }
+
 
   return (
     <main className={styles.book_section}>
@@ -146,8 +166,9 @@ const Books = ({bookTitle,bookText}) => {
 
           {bookText?bookText.map((e,o)=>(
             <div className={styles.book_read} key={o}>
-              <div className={styles.verse}></div>
-                <div key={o} className={styles.text}>
+              <div className={styles.verse} ></div>
+                <div key={o} className={styles.text}  onDoubleClick={(a)=>handleSaveBook(a)}>
+                <i class="fa-solid fa-heart"></i>
                   <span className={styles.versesDetail}>{e.verse}.</span>
                     <span> {e.text.split(' ').map ((e)=>(<span onClick={(e)=>{handleDicionario(e.target.textContent)}} className={styles.letters}>{e} </span>))}</span></div>
             </div>

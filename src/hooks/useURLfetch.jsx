@@ -11,13 +11,13 @@ export const useURLfetch = (url) => {
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
-                    throw new Error("Failed to fetch data");
+                    throw new Error("fail Data");
                 }
                 const dataRes = await response.json();
                 setData(dataRes);
             } catch (error) {
                 setError(error); 
-                console.error('There was a problem:', error.message);
+                console.error(error.message);
             } finally {
                 setLoading(false); 
                 

@@ -13,6 +13,7 @@ const Post = ({post,perfil}) => {
   const { insertDocument, response } = useInsertDocument('comments')
   const { documents: commentsUser, loading } = useFetchDocuments('comments')
   const { deleteDocument } = useDeletedDocument('posts')
+  
 
   const { user } = useAuthValue()
 
@@ -31,7 +32,7 @@ const Post = ({post,perfil}) => {
     },4000)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     Seterror('')
     SetComment('')
