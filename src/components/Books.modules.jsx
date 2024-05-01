@@ -1,6 +1,8 @@
 import styles from './Books.module.css'
 import { useState, useRef, useEffect } from 'react'
+
 import DicionarioComponent from './DicionarioComponent'
+import FavoriteVerse from './FavoriteVerse'
 
 import { useFetchDocuments } from '../hooks/useFetchDocuments'
 import { useInsertDocument } from '../hooks/useInsertDocument'
@@ -11,9 +13,9 @@ const Books = ({bookTitle,bookText}) => {
 
   const { user } = useAuthValue()
 
-  const { insertDocument, response } = useInsertDocument('book')
-
-
+  const { insertDocument, response } = useInsertDocument('book', null, user.uid)
+  const { documents: booksFetch, loading } = useFetchDocuments('book')
+  console.log(booksFetch)
   const [visibility,SetVisibility] = useState(true)
   const [dicionarioView,SetdicionarioView] = useState(false)
 
@@ -78,16 +80,17 @@ const Books = ({bookTitle,bookText}) => {
  let getText = Array.from(id.target.parentNode.textContent)
 let filterTextSave = getText.filter((e)=>e != e.replace(/[^\d/.]+/g,'')).join('')
 let saveBookTitle = bookTitle.split(' ')
+let id_book = id.target.parentNode.id
 
 insertDocument({
   text: filterTextSave,
   nameBook: saveBookTitle[0],
   chapterBook: saveBookTitle[1],
-  user: user.uid
+  user: user.uid,
+  id_book: id_book
 })
 
-
-  }
+}
 
 
   return (
@@ -107,12 +110,12 @@ insertDocument({
               
               {visibility && <>
                 <span> 
-                <i class="fa-solid fa-chevron-right" onClick={()=>SetVisibility(false)}></i>
+                <i className="fa-solid fa-chevron-right" onClick={()=>SetVisibility(false)}></i>
                   </span>
               </>}
               {!visibility && <>
                 <span>
-                <i class="fa-solid fa-chevron-left" onClick={()=>SetVisibility(true)}></i>
+                <i className="fa-solid fa-chevron-left" onClick={()=>SetVisibility(true)}></i>
                   </span>
               </>}
 
@@ -165,10 +168,13 @@ insertDocument({
         <aside className={styles.book_read} id='read'>
 
           {bookText?bookText.map((e,o)=>(
-            <div className={styles.book_read} key={o}>
-              <div className={styles.verse} ></div>
-                <div key={o} className={styles.text}  onDoubleClick={(a)=>handleSaveBook(a)}>
-                <i class="fa-solid fa-heart"></i>
+            <div className={styles.book_read} key={o} id={`${e.book_id}-${e.chapter}-${e.verse}`}  onDoubleClick={(a)=>handleSaveBook(a)}>
+              <div className={styles.verse}></div>
+                <div key={o} className={styles.text}>
+                <span className={styles.heart}>
+                <FavoriteVerse id={`${e.book_id}-${e.chapter}-${e.verse}`}/>
+                </span>
+
                   <span className={styles.versesDetail}>{e.verse}.</span>
                     <span> {e.text.split(' ').map ((e)=>(<span onClick={(e)=>{handleDicionario(e.target.textContent)}} className={styles.letters}>{e} </span>))}</span></div>
             </div>
