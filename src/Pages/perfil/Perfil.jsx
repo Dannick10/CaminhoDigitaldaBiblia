@@ -35,10 +35,12 @@ const Perfil = () => {
         <section className={styles.perfil_dashboard}>
 
           <ul>
+            <Link to={'/favoritebook'}>
             <li>
             <i className="fa-solid fa-heart"></i>
               <p>Textos Favoritos</p>
               </li>
+            </Link>
 
             <li>
             <i className="fa-solid fa-magnifying-glass"></i>

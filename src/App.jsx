@@ -18,6 +18,7 @@ import Login from './Pages/Login/Login'
 import Perfil from './Pages/perfil/Perfil'
 import Feed from './Pages/Blog/Blog'
 import Mypost from './Pages/Mypost/Mypost'
+import FavoriteBook from './Pages/FavoriteBook/FavoriteBook'
 
 function App() {
   
@@ -51,6 +52,7 @@ function App() {
         <Route path='/perfil' element={user ? <Perfil/>: <Navigate to="/register"/>}/>
         <Route path='/feed' element={user ? <Feed/>: <Navigate to="/register"/>}/>
         <Route path='/mypost' element={user ? <Mypost/>: <Navigate to="/register"/>}/>
+        <Route path='/favoritebook' element={user ? <FavoriteBook/>:<Navigate to="/register"/>}/>
       </Routes>
      </BrowserRouter>
       </AuthProvider>
