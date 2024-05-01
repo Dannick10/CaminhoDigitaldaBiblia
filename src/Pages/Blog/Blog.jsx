@@ -9,13 +9,17 @@ import { useAuthValue } from '../../Context/AuthContext'
 import Post from '../../components/Post'
 
 const Feed = () => {
-
+  
+  const { user } = useAuthValue()
+  
   const [text,SetText] = useState('')
   const [error,setError] = useState('')
   
   const {insertDocument, response} = useInsertDocument('posts')
-  const { user } = useAuthValue()
+
   const { documents: posts, loading} = useFetchDocuments('posts')
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault()

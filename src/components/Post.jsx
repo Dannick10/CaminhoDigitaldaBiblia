@@ -4,15 +4,15 @@ import IconProfile from './iconProfile'
 
 import { useInsertDocument } from '../hooks/useInsertDocument'
 import { useFetchDocuments } from '../hooks/useFetchDocuments'
+import { useDeletedDocument } from '../hooks/useDeleteDocument'
 
 import { useAuthValue } from '../Context/AuthContext'
 
 const Post = ({post,perfil}) => {
- 
 
   const { insertDocument, response } = useInsertDocument('comments')
-
   const { documents: commentsUser, loading } = useFetchDocuments('comments')
+  const { deleteDocument } = useDeletedDocument('posts')
 
   const { user } = useAuthValue()
 
@@ -23,6 +23,7 @@ const Post = ({post,perfil}) => {
   const [error,Seterror] = useState('')
 
   const [viewMenu, SetViewMenu] = useState(false)
+
 
   if(viewMenu){
     setTimeout(()=>{
@@ -73,7 +74,7 @@ const Post = ({post,perfil}) => {
 
             {viewMenu && (<>
              <div className={styles.option}>
-             <div><i class="fa-solid fa-trash"></i> <p>EXCLUIR</p></div>
+             <div onClick={() => deleteDocument(post.id)}><i class="fa-solid fa-trash"></i> <p>EXCLUIR</p></div>
                </div>
             </>)}
 
