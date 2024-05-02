@@ -2,11 +2,15 @@ import { useState,useRef } from 'react'
 import styles from './Livros.module.css'
 
 import Books from '../components/Books.modules'
+import OffBooks from '../components/OffBooks.modules'
 import ChaptesNumber from '../components/ChaptesNumber'
 import ChapterSize from '../components/ChapterSize'
 import { useFetchBible } from '../hooks/useFetchBible'
+import { useAuthValue } from '../Context/AuthContext'
 
 const Livros = () => {
+
+  const { user } = useAuthValue()
 
   const checkRef = useRef(null);
   const [checked, setChecked] = useState(false);
@@ -54,9 +58,12 @@ const Livros = () => {
        <section className={styles.book}>
        <aside className={styles.bookRead}>
          {loading && <div className="loadingBooks"></div>}
-         {console.log(bibleJson)}
-
+      
+        {user?(<>
          {bibleJson && <Books bookTitle={bibleJson.reference} bookChapter={bookName} bookText={bibleJson.verses}/>}
+        </>):(<>
+        {bibleJson && <OffBooks bookTitle={bibleJson.reference} bookChapter={bookName} bookText={bibleJson.verses}/>}
+        </>)}
 
         {!bookName == '' &&(<>
 
