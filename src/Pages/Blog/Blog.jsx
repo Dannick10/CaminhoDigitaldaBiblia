@@ -76,7 +76,7 @@ const Feed = () => {
         </form>
       </div>
       <div className={style.post}>
-          {loading && (<div className='loadingBooks'></div>)}
+           {loading && <p className='loadingBooks'></p>} 
           {posts && posts.length == 0 && (<><p>Sem posts no momento.</p></>)}
           {posts && posts.map((post)=>(
             <>

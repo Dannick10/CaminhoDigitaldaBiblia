@@ -12,14 +12,13 @@ const FavoriteBook = () => {
   return (
     <div className={style.favorite_section}>
         {loading && <p className='loadingBooks'></p>}
-        FavoriteBook
-
+ 
         {books && books.map((book) => (
             <>
                 <div className={style.book_favorite}>
+                    <h3>{book.nameBook}</h3>
                     <p>{book.text}</p>
-                    <p>{book.nameBook}</p>
-                    <p>{book.id_book.replace('-',' ')}</p>
+                    <span>{book.id_book.slice(4).replace('-',':')}</span>
                 </div>
             </>
         ))}
