@@ -1,18 +1,16 @@
 .favorite_section{
     padding: 8em 0;
-    width: 100%;
 }
 
 .book_favorite{
     display: flex; 
     flex-direction: column;
+    align-items: center;
     gap: 2em;
-    justify-content: space-around;
     box-shadow: 0px 0px 1px black;
-    padding: .5em 5em;
     margin: 1em 0;
-    text-align: center;
     position: relative;
+    padding: .5em 0;
 }
 
 .book_favorite h3 {
@@ -26,12 +24,13 @@
 .book_favorite span {
     font-weight: bold;
     color: var(--color4);
+  
 }
 
 .book_favorite section {
     display: flex;
-    justify-content: space-between;
-    padding: .2em .5em;
+    justify-content: space-around;
+    width: 100%;
 }
 
 span.date{
@@ -39,39 +38,10 @@ span.date{
     font-size: .8em;
 }
 
-.controls{
-    position: relative;
+.texts{
+    display: flex;
 }
 
-.controls i{
-    font-weight: bold;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-.option{
-    font-weight: 500;
-    color: var(--color4);
-    box-shadow: 0px 0px 2px black;
-    user-select: none;
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    top: -2.5em;
-}
-
-.option div{
-    display: flex;  display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 6em;
-    height: 2em;
-}
-
-.option i {
-    font-size: 1em;
-    color: var(--color1);
-}
 
 
 @media screen and (max-width: 800px) {
