@@ -73,18 +73,17 @@ const Books = ({bookTitle,bookText}) => {
     let regexWord = word.replace(/[\[\].!'@,><|://\\;&*()_+=]/g, "")
       SetdicionarioSearch(regexWord)
   }
-
+  console.log(bookText)
   const handleSaveBook = (id) => {
     if(!user) {return}
  let getText = Array.from(id.target.parentNode.textContent)
 let filterTextSave = getText.filter((e)=>e != e.replace(/[^\d/.]+/g,'')).join('')
 let saveBookTitle = bookTitle.split(' ')
 let id_book = id.target.parentNode.id
-console.log(id)
 
 insertDocument({
   text: filterTextSave,
-  nameBook: saveBookTitle[0],
+  nameBook: saveBookTitle,
   chapterBook: saveBookTitle[1],
   uid: user.uid,
   id_book: id_book

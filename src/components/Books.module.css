@@ -116,6 +116,9 @@ input,label div,button,textarea {
     top: .8em;
 }
 
+
+
+
 @media screen and (max-width:800px) {
     .book_section {
         width:100%

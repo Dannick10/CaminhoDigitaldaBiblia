@@ -10,7 +10,7 @@
     box-shadow: 0px 0px 1px black;
     margin: 1em 0;
     position: relative;
-    padding: .5em 0;
+    padding: .5em 8em;
 }
 
 .book_favorite h3 {
@@ -22,14 +22,14 @@
 }
 
 .book_favorite span {
-    font-weight: bold;
-    color: var(--color4);
+    font-weight: 500;
+   
   
 }
 
 .book_favorite section {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -47,7 +47,7 @@ span.date{
 @media screen and (max-width: 800px) {
     
     .book_favorite {
-        padding: 0.2em;
+        padding: 1em;
     }
 
 }
