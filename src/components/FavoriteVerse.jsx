@@ -1,10 +1,13 @@
 import React from 'react'
 
 import { useFetchDocuments } from '../hooks/useFetchDocuments'
+import { useAuthValue } from '../Context/AuthContext'
 
 const FavoriteVerse = ({id}) => {
 
-    const { documents: booksFetch, loading } = useFetchDocuments('book')
+    const { user } = useAuthValue()
+
+    const { documents: booksFetch, loading } = useFetchDocuments('book', null, user.uid)
     
     return (
     <div>

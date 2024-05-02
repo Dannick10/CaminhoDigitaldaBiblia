@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from 'react'
 import DicionarioComponent from './DicionarioComponent'
 import FavoriteVerse from './FavoriteVerse'
 
-import { useFetchDocuments } from '../hooks/useFetchDocuments'
 import { useInsertDocument } from '../hooks/useInsertDocument'
 
 import { useAuthValue } from '../Context/AuthContext'
@@ -14,7 +13,6 @@ const Books = ({bookTitle,bookText}) => {
   const { user } = useAuthValue()
 
   const { insertDocument, response } = useInsertDocument('book', null, user.uid)
-  const { documents: booksFetch, loading } = useFetchDocuments('book')
 
   const [visibility,SetVisibility] = useState(true)
   const [dicionarioView,SetdicionarioView] = useState(false)
@@ -88,7 +86,7 @@ insertDocument({
   text: filterTextSave,
   nameBook: saveBookTitle[0],
   chapterBook: saveBookTitle[1],
-  user: user.uid,
+  uid: user.uid,
   id_book: id_book
 })
 

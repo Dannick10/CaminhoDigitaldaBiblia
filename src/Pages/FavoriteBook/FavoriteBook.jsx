@@ -2,12 +2,13 @@ import React from 'react'
 import style from './FavoriteBook.module.css'
 
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
+import { useAuthValue } from '../../Context/AuthContext'
 
 const FavoriteBook = () => {
 
-    const { documents: books, loading } = useFetchDocuments('book')
-    console.log(books)
+    const { user } = useAuthValue()
 
+    const { documents: books, loading } = useFetchDocuments('book', null, user.uid)
 
   return (
     <div className={style.favorite_section}>
