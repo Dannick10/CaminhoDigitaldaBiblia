@@ -15,7 +15,7 @@ const Books = ({bookTitle,bookText}) => {
 
   const { insertDocument, response } = useInsertDocument('book', null, user.uid)
   const { documents: booksFetch, loading } = useFetchDocuments('book')
-  console.log(booksFetch)
+
   const [visibility,SetVisibility] = useState(true)
   const [dicionarioView,SetdicionarioView] = useState(false)
 
@@ -77,10 +77,12 @@ const Books = ({bookTitle,bookText}) => {
   }
 
   const handleSaveBook = (id) => {
+    if(!user) {return}
  let getText = Array.from(id.target.parentNode.textContent)
 let filterTextSave = getText.filter((e)=>e != e.replace(/[^\d/.]+/g,'')).join('')
 let saveBookTitle = bookTitle.split(' ')
 let id_book = id.target.parentNode.id
+console.log(id)
 
 insertDocument({
   text: filterTextSave,
@@ -172,7 +174,9 @@ insertDocument({
               <div className={styles.verse}></div>
                 <div key={o} className={styles.text}>
                 <span className={styles.heart}>
+          {user && (<>
                 <FavoriteVerse id={`${e.book_id}-${e.chapter}-${e.verse}`}/>
+          </>)}
                 </span>
 
                   <span className={styles.versesDetail}>{e.verse}.</span>
