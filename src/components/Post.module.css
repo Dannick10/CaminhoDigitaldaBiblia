@@ -163,3 +163,10 @@ height: 1em;
     font-size: 1em;
     color: var(--color1);
 }
+
+.profile div:first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .6em;
+}
