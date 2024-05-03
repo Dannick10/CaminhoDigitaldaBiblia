@@ -3,15 +3,19 @@ import styles from './FavoriteBook.module.css'
 import { useState,useRef } from 'react'
 
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
+
 import { useAuthValue } from '../../Context/AuthContext'
+
 import Controls from '../../components/Controls'
 
 const FavoriteBook = () => {
-    
+
     const { user } = useAuthValue()
+
     
     const { documents: books, loading } = useFetchDocuments('book', null, user.uid)
     console.log(books)
+    
   return (
     <div className={styles.favorite_section}>
 
@@ -31,7 +35,7 @@ const FavoriteBook = () => {
                     <span className={styles.date}>{new Date(book.createdAt.seconds*1000).toLocaleDateString('pt-br')}</span>
                         <h3>{book.nameBook.join(' ')}</h3>
                        
-                        <Controls document={'book'} idcontrol={book.id}/>
+                        <Controls document={'book'} idcontrol={book.id} nameBook={book.nameBook[0]} chapterBook={book.chapterBook}/>
 
                     </section>
 
