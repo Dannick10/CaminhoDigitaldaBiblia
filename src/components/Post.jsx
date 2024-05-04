@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './Post.module.css'
 import IconProfile from './iconProfile'
 
@@ -8,12 +8,11 @@ import { useDeletedDocument } from '../hooks/useDeleteDocument'
 
 import { useAuthValue } from '../Context/AuthContext'
 
-import Controls from './Controls'
-
 const Post = ({post,perfil}) => {
 
   const { insertDocument, response } = useInsertDocument('comments')
   const { documents: commentsUser, loading } = useFetchDocuments('comments')
+  const { deleteDocument } = useDeletedDocument('posts')
   
 
   const { user } = useAuthValue()
@@ -21,14 +20,17 @@ const Post = ({post,perfil}) => {
   const [date,SetData] = useState(new Date(post.createdAt.seconds*1000).toLocaleString('pt-br').split(','))
   const [hour,Sethour] = useState(0)
 
-  useEffect(()=> {
-    SetData(new Date(post.createdAt.seconds*1000).toLocaleString('pt-br').split(','))
-
-  },[insertDocument])
-
-
   const [comment,SetComment] = useState('')
   const [error,Seterror] = useState('')
+
+  const [viewMenu, SetViewMenu] = useState(false)
+
+
+  if(viewMenu){
+    setTimeout(()=>{
+      SetViewMenu(false)
+    },4000)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -57,11 +59,7 @@ const Post = ({post,perfil}) => {
    <div className={styles.post_container}>  
      <div className={styles.post} key={post.id}>
              <div className={styles.profile}>
-
-              <div>
-                  <IconProfile icon={user.displayName} size={1.8}/>     
-                 <div className={styles.name}>
-              </div>
+               <div className={styles.name}>
 
                    <div>
                      <p>{post.name}</p>
@@ -70,7 +68,17 @@ const Post = ({post,perfil}) => {
                </div>
               {user.uid == post.uid && (<>
               <div className={styles.controls}>
-              <Controls document={'posts'} idcontrol={post.id} />
+
+               <span onClick={() => SetViewMenu(!viewMenu?true:false)}>
+                  <i className="fa-solid fa-ellipsis"></i>
+              </span>
+
+            {viewMenu && (<>
+             <div className={styles.option}>
+             <div onClick={() => deleteDocument(post.id)}><i class="fa-solid fa-trash"></i> <p>EXCLUIR</p></div>
+               </div>
+            </>)}
+
               </div>
               </>)}
 
@@ -118,7 +126,8 @@ const Post = ({post,perfil}) => {
                       <div className={styles.comments} key={i}>
                     <div className={styles.profile_comments}>
                     </div>
-                      <div className={styles.comment_aside}>    
+
+                      <div className={styles.comment_aside}>
                         <p>{c.name}</p>
                           <div className={styles.text_comment}>
                         <p>{c.comment}</p>
