@@ -1,9 +1,8 @@
 import React from 'react'
 import styles from './ChapterSize.module.css'
 
+
 const ChapterSize = ({chaptesNumber,SetBookChapter,bookchapter}) => {
-
-
     
   const handleChapter = (chapter) =>{
     SetBookChapter(chapter)

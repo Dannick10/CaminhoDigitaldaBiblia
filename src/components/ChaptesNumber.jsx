@@ -1,4 +1,6 @@
 import styles from './ChaptesNumber.module.css'
+import { useFetchBible } from '../hooks/useFetchBible';
+import { useEffect } from 'react';
 
 const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter,checked,setChecked}) => {
 
@@ -71,6 +73,16 @@ const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter,check
         {nome: "Apocalipse", number: 22}
     ];
 
+    const {bibleJson,bookName,SetBookName:setBook,bookChapter,SetBookChapter:setbook,loading:bookLoading,chapterSize,SetChapterSize:SetSize} = useFetchBible()
+
+    
+    useEffect(() => {
+        if(bookName) {
+        SetBookName(bookName)
+        let a = manyChaptersBookHas.find(book => book.nome === bookName);
+        SetChapterSize(a.number)
+       }
+      },[])
 
     const handleClick = (e) =>{
         SetBookName(e.target.innerHTML)

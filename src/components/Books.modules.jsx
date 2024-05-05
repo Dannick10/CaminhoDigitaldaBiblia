@@ -73,7 +73,7 @@ const Books = ({bookTitle,bookText}) => {
     let regexWord = word.replace(/[\[\].!'@,><|://\\;&*()_+=]/g, "")
       SetdicionarioSearch(regexWord)
   }
-  console.log(bookText)
+
   const handleSaveBook = (id) => {
     if(!user) {return}
  let getText = Array.from(id.target.parentNode.textContent)
@@ -91,6 +91,16 @@ insertDocument({
 
 }
 
+const [draggedItem, setDraggedItem] = useState(null)
+
+const handleDragoStart = (e) => {
+console.log(e)
+  setDraggedItem(e)
+}
+
+const handleDragStop = (e) => {
+  console.log(e)
+}
 
   return (
     <main className={styles.book_section}>
@@ -129,6 +139,11 @@ insertDocument({
                  <span className={styles.button_acces} onClick={()=>{dicionarioView?SetdicionarioView(false):SetdicionarioView(true)}}>
                 <i className="fa-solid fa-book-open">
                   </i></span>
+
+                  <span 
+                  onDragStart={(e) => handleDragoStart(e)}
+                  onDragEnd={() => setDraggedItem(null)}
+                  ><i class="fa-solid fa-heart"></i></span>
                 
               </div>
                    </>)}
@@ -167,7 +182,7 @@ insertDocument({
         <aside className={styles.book_read} id='read'>
 
           {bookText?bookText.map((e,o)=>(
-            <div className={styles.book_read} key={o} id={`${e.book_id}-${e.chapter}-${e.verse}`}  onDoubleClick={(a)=>handleSaveBook(a)}>
+            <div className={styles.book_read} key={o} id={`${e.book_id}-${e.chapter}-${e.verse}`}  onDoubleClick={(a)=>handleSaveBook(a)} i={handleDragStop}>
               <div className={styles.verse}></div>
                 <div key={o} className={styles.text}>
                 <span className={styles.heart}>
