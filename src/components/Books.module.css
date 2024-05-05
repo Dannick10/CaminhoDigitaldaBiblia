@@ -154,8 +154,13 @@ input,label div,button,textarea {
         bottom: 1.3em;
      
     }
-      
+
+    .heart{
+        left: -.5em;
+    }
+
 }
+
 .book_title {
     display: flex;
     align-items: center;
