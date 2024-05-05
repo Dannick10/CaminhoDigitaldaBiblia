@@ -75,7 +75,8 @@ const Livros = () => {
                 </div>
          
               <div>{bookChapter}</div>
-            <div className={styles.right} style={chapterSize == bookChapter?{opacity:'0.3',pointerEvents:'none'}:{opacity:'1'}}><i className="fa-solid fa-chevron-right" onClick={()=>{SetBookChapter(bookChapter + 1), scrollTo(0,0)}}></i></div>
+
+            <div className={styles.right} style={chapterSize == bookChapter?{opacity:'0.3',pointerEvents:'none'}:{opacity:'1'}}><i className="fa-solid fa-chevron-right" onClick={()=>{SetBookChapter(parseInt(bookChapter) + 1), scrollTo(0,0)}}></i></div>
 
          </div>
           </>)}
