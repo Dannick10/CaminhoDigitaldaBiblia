@@ -6,7 +6,10 @@
  .about_main{
     color: var(--color4);
     line-height: 1.6em;
-    padding: 1em 0;
+    padding: 3em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8em;
  }
 
 
@@ -15,8 +18,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 80vh;
-     
+    gap: 3em;
+}
+
+.about_section a {
+    color: var(--color0);
 }
 
 .title_about{
@@ -29,20 +35,28 @@
 .firstline,
 .lastline{
 position: relative;
-width: 18em;
+width: 1em;
 right: 2em;
 height: .3em;
 background-color: var(--color1);
 }
 
 .lastline{
-left: 2em;
+left: 1em;
 }
 
 
 
 .description_about{
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+
+.description_about h3{
+    margin: 1em 0;
+   
 }
 
 .about_submit{
@@ -50,6 +64,22 @@ left: 2em;
     flex-direction: column;
     align-items: center;
     font-family: var(--font);
+}
+.des_link{
+    margin: 1em auto;
+}
+
+.description_about button{
+ width: 200px;
+ padding: 1em;
+ background-color: var(--color4);
+ cursor: pointer;
+ color: var(--color3);
+}
+
+.description_about button:hover{
+    background-color: var(--color0);
+    transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .about_submit textarea,
@@ -285,7 +315,7 @@ background-color: var(--color4);
     .description_about{
         font-size: 0.9em;
         width: 80%;
-        text-align: center;
+        
     }
 
     .about_submit textarea,
