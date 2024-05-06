@@ -301,6 +301,10 @@ background-color: var(--color4);
     border-radius: .2em;
 }
 
+.page{
+    min-height: 100vh;
+}
+
 @media screen and (max-width: 800px) {
     
     .firstline,

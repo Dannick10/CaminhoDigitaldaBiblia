@@ -1,0 +1,38 @@
+.footer{
+    display: flex;
+    justify-content: space-around;
+    padding: .1em;
+    background-color: var(--color4);
+    color: var(--color3);
+
+}
+
+.footer span{
+    font-size: .8em;
+}
+
+.footer span span {
+    font-size: .9em;
+    color: var(--color1);
+    text-shadow: 1px 1px 4px var(--color1);
+}
+
+.footer p{
+    font-size: .9em;
+}
+
+.footer div{
+    display: flex;
+    align-items: center;
+    gap: .8em;
+}
+
+.footer a{
+    color: var(--color3);
+    font-size: 1.2em;
+}
+
+.footer a:hover{
+    color: var(--color1);
+    transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}

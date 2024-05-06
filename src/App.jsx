@@ -6,7 +6,7 @@ import { useAuthentication } from './hooks/useAuthentication'
 import './App.css'
 
 import Header from './components/Header'
-
+import Footer from './components/Footer'
 
 import { AuthProvider } from './Context/AuthContext'
 
@@ -43,7 +43,9 @@ function App() {
       <AuthProvider value={{user}}>
      <BrowserRouter>
        <Header/>
-      <Routes>
+     <div className='page'>
+         
+             <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/livros' element={<Livros />}/>
         <Route path='/sobre' element={<Sobre />}/>
@@ -53,7 +55,9 @@ function App() {
         <Route path='/feed' element={user ? <Feed/>: <Navigate to="/register"/>}/>
         <Route path='/mypost' element={user ? <Mypost/>: <Navigate to="/register"/>}/>
         <Route path='/favoritebook' element={user ? <FavoriteBook/>:<Navigate to="/register"/>}/>
-      </Routes>
+             </Routes>
+     </div>
+      <Footer/>
      </BrowserRouter>
       </AuthProvider>
     </>
