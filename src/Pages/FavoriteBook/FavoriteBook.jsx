@@ -35,7 +35,7 @@ const FavoriteBook = () => {
                     <span className={styles.date}>{new Date(book.createdAt.seconds*1000).toLocaleDateString('pt-br')}</span>
                         <h3>{book.nameBook.join(' ')}</h3>
                        
-                        <Controls document={'book'} idcontrol={book.id} nameBook={book.nameBook[0]} chapterBook={book.chapterBook}/>
+                        <Controls document={'book'} idcontrol={book.id} nameBook={book.nameBook[0]} chapterBook={book.chapterBook} havebook={true}/>
 
                     </section>
 

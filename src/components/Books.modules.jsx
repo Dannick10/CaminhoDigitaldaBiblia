@@ -134,8 +134,6 @@ insertDocument({
                  <span className={styles.button_acces} onClick={()=>{dicionarioView?SetdicionarioView(false):SetdicionarioView(true)}}>
                 <i className="fa-solid fa-book-open">
                   </i></span>
-
-                  <span><i class="fa-solid fa-heart"></i></span>
                 
               </div>
                    </>)}

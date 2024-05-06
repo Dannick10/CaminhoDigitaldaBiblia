@@ -6,7 +6,7 @@ import { useFetchBible } from '../hooks/useFetchBible'
 
 import { useDeletedDocument } from '../hooks/useDeleteDocument'
 
-const Controls = ({document,idcontrol,nameBook,chapterBook}) => {
+const Controls = ({document,idcontrol,nameBook,chapterBook,havebook}) => {
 
   const {bibleJson,bookName,SetBookName,bookChapter,SetBookChapter,loading:bookLoading,chapterSize,SetChapterSize} = useFetchBible()
 
@@ -37,7 +37,9 @@ const Controls = ({document,idcontrol,nameBook,chapterBook}) => {
         {viewMenu && (
             <div className={styles.option}>
             <div onClick={() => deleteDocument(idcontrol)}><i className="fa-solid fa-trash"></i> <p>EXCLUIR</p></div>
+            {havebook &&
             <div onClick={() => handleBook()}><i className="fa-solid fa-book"></i> <p>LIVRO</p></div>
+             }
             </div>          
         )}       
     </div>

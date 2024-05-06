@@ -24,7 +24,7 @@ const Post = ({post,perfil}) => {
   useEffect(()=> {
     SetData(new Date(post.createdAt.seconds*1000).toLocaleString('pt-br').split(','))
 
-  },[insertDocument])
+  },[loading])
 
 
   const [comment,SetComment] = useState('')
