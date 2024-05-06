@@ -19,6 +19,11 @@
    
 }
 
+.dicionario div i{
+    background-color: var(--color1);
+    position: absolute;
+}
+
 .dicionario h2{
     color: var(--color1);
 }

@@ -11,8 +11,8 @@ const DicionarioComponent = ({ url }) => {
             <>            
                  <div className={styles.dic}>
                      <div className={styles.dicionario}>
-                                 <h2>Dicionario</h2>
-                                 {data == '' && (<div>não foi possivel achar a palavra</div>)}
+                                     <h2>Dicionario</h2>
+                                 {data == '' && (<div>não foi possivel achar a palavra</div>)}       
                                  {data && data.map((e, i) => (
                         <div key={i} className={styles.text} dangerouslySetInnerHTML={{ __html: e.xml }}></div>
                         ))}

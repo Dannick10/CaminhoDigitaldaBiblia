@@ -57,7 +57,10 @@ function App() {
         <Route path='/favoritebook' element={user ? <FavoriteBook/>:<Navigate to="/register"/>}/>
              </Routes>
      </div>
-      <Footer/>
+
+      <div className='footer_state'>
+        <Footer/></div>
+
      </BrowserRouter>
       </AuthProvider>
     </>
