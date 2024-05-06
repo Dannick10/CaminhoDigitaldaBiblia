@@ -52,7 +52,7 @@ const Books = ({bookTitle,bookText}) => {
   let msg = new SpeechSynthesisUtterance()
   
   const handleVoice = () => {
-    let textBible = bookText.map((e)=>e.text.split(' '))
+    let textBible = bookText.map((e)=>e.text)
     let voices = synth.getVoices()
     if(voices.length !== 0) {
       msg.voice = voices.find((v)=> v.lang == 'pt-BR')
@@ -75,11 +75,16 @@ const Books = ({bookTitle,bookText}) => {
   }
 
   const handleSaveBook = (id) => {
-    if(!user) {return}
- let getText = Array.from(id.target.parentNode.textContent)
-let filterTextSave = getText.filter((e)=>e != e.replace(/[^\d/.]+/g,'')).join('')
-let saveBookTitle = bookTitle.split(' ')
-let id_book = id.target.parentNode.id
+   let nodes = Array.from(id.target.childNodes)
+
+   if(nodes.length < 3) {
+    return
+   }
+
+  let getText = Array.from(id.target.parentNode.textContent)
+  let filterTextSave = getText.filter((e)=>e != e.replace(/[^\d/.]+/g,'')).join('')
+  let saveBookTitle = bookTitle.split(' ')
+  let id_book = id.target.parentNode.id
 
 insertDocument({
   text: filterTextSave,
@@ -89,17 +94,7 @@ insertDocument({
   id_book: id_book
 })
 
-}
 
-const [draggedItem, setDraggedItem] = useState(null)
-
-const handleDragoStart = (e) => {
-console.log(e)
-  setDraggedItem(e)
-}
-
-const handleDragStop = (e) => {
-  console.log(e)
 }
 
   return (
@@ -140,10 +135,7 @@ const handleDragStop = (e) => {
                 <i className="fa-solid fa-book-open">
                   </i></span>
 
-                  <span 
-                  onDragStart={(e) => handleDragoStart(e)}
-                  onDragEnd={() => setDraggedItem(null)}
-                  ><i class="fa-solid fa-heart"></i></span>
+                  <span><i class="fa-solid fa-heart"></i></span>
                 
               </div>
                    </>)}
@@ -182,7 +174,7 @@ const handleDragStop = (e) => {
         <aside className={styles.book_read} id='read'>
 
           {bookText?bookText.map((e,o)=>(
-            <div className={styles.book_read} key={o} id={`${e.book_id}-${e.chapter}-${e.verse}`}  onDoubleClick={(a)=>handleSaveBook(a)} i={handleDragStop}>
+            <div className={styles.book_read} key={o} id={`${e.book_id}-${e.chapter}-${e.verse}`}  onDoubleClick={(a)=>handleSaveBook(a)}>
               <div className={styles.verse}></div>
                 <div key={o} className={styles.text}>
                 <span className={styles.heart}>

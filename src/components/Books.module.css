@@ -119,7 +119,7 @@ input,label div,button,textarea {
 
 
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:900px) {
     .book_section {
         width:100%
     }

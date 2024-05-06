@@ -1,6 +1,7 @@
 
 .controls{
     position: relative;
+ 
 }
 
 .controls i{
@@ -10,6 +11,7 @@
 }
 
 .option{
+    display: flex;
     font-weight: 500;
     color: var(--color4);
     box-shadow: 0px 0px 2px black;
@@ -22,7 +24,8 @@
 }
 
 .option div{
-    display: flex;  display: flex;
+    display: flex;
+    box-shadow: 0px 0px 2px black;
     align-items: center;
     justify-content: space-around;
     width: 6em;
