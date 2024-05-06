@@ -28,9 +28,11 @@
     padding: 2em;
     border-radius: .2em;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 10em;
     height: 1.5em;
+    text-align: center;
 }
 
 .perfil_dashboard li i{
@@ -67,6 +69,62 @@ text-align: center;
 .perfil a{
     text-decoration: none;
     color: var(--color3);
+}
+
+li.develop{
+    position: relative;
+}
+
+li.develop::after{
+    content: '';
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color1);
+    animation: develop cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse 3s infinite;
+    z-index: -1;
+    inset: 1px;
+}
+
+li.develop::before{
+    content: '';
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color1);
+    animation: develop cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 3s infinite;
+    z-index: -1;
+}
+
+@keyframes develop {
+    0%{
+       left: -1%;
+    }
+
+    20%{
+        left: 90%;
+        top: -1%;
+    }
+
+    40%{
+        left: 90%;
+        top: 85%;
+    }
+
+    80%{
+        left: -1%;
+        top: 85%;
+    }
+
+    100%{
+        left: -1%;
+        top: 0;
+    }
+
 }
 
 

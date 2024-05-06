@@ -14,7 +14,6 @@ const FavoriteBook = () => {
 
     
     const { documents: books, loading } = useFetchDocuments('book', null, user.uid)
-    console.log(books)
     
   return (
     <div className={styles.favorite_section}>

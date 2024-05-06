@@ -42,10 +42,6 @@ const Perfil = () => {
               </li>
             </Link>
 
-            <li>
-            <i className="fa-solid fa-magnifying-glass"></i>
-              <p>Históricos</p>
-              </li>
 
               <Link to="/mypost">
               <li>
@@ -53,6 +49,10 @@ const Perfil = () => {
               Postagens
               </li>
               </Link>
+
+            <li className={styles.develop}>
+              <p>EM DESENVOLVIMENTO</p>    
+              </li>
 
           </ul>
         </section>
