@@ -21,8 +21,9 @@ const FavoriteBook = () => {
         {loading && <p className='loadingBooks'></p>}
 
         {books && books.length == 0 && (<>
-        <p>Voçê ainda não salvou nenhum livro</p>
-        <button>Ir para livros</button>
+            <div className={styles.book_favorite}>
+        <p>Voçê ainda não favoritou nenhum livro</p>
+                </div>
         </>)
         }
  

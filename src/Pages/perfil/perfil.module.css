@@ -71,11 +71,11 @@ text-align: center;
     color: var(--color3);
 }
 
-li.develop{
+.perfil_dashboard li.develop{
     position: relative;
 }
 
-li.develop::after{
+.perfil_dashboard  li.develop::after{
     content: '';
     width: 1em;
     height: 1em;
@@ -88,7 +88,7 @@ li.develop::after{
     inset: 1px;
 }
 
-li.develop::before{
+.perfil_dashboard  li.develop::before{
     content: '';
     width: 1em;
     height: 1em;
@@ -99,6 +99,13 @@ li.develop::before{
     animation: develop cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 3s infinite;
     z-index: -1;
 }
+
+.perfil_dashboard  li:hover:not(.perfil_dashboard ul  > li:last-child) {
+background-color: var(--color0);
+transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
 
 @keyframes develop {
     0%{
