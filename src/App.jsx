@@ -58,8 +58,7 @@ function App() {
              </Routes>
      </div>
 
-      <div className='footer_state'>
-        <Footer/></div>
+        <Footer/>
 
      </BrowserRouter>
       </AuthProvider>
