@@ -4,6 +4,7 @@
     padding: .1em;
     background-color: var(--color4);
     color: var(--color3);
+    z-index: 1;
 }
 
 .footer span{
