@@ -42,9 +42,7 @@ function App() {
     <>
       <AuthProvider value={{user}}>
      <BrowserRouter>
-       <Header/>
-     <div className='page'>
-         
+       <Header/> 
              <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/livros' element={<Livros />}/>
@@ -56,9 +54,6 @@ function App() {
         <Route path='/mypost' element={user ? <Mypost/>: <Navigate to="/register"/>}/>
         <Route path='/favoritebook' element={user ? <FavoriteBook/>:<Navigate to="/register"/>}/>
              </Routes>
-     </div>
-
-        <Footer/>
 
      </BrowserRouter>
       </AuthProvider>
