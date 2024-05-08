@@ -57,9 +57,7 @@ const Post = ({post,perfil}) => {
    <div className={styles.post_container}>  
      <div className={styles.post} key={post.id}>
              <div className={styles.profile}>
-
-              <div>
-                  <IconProfile icon={user.displayName} size={1.8}/>     
+              <div> 
                  <div className={styles.name}>
               </div>
 

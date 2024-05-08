@@ -190,8 +190,7 @@ insertDocument({
             
             {dicionarioView && <>
           {bookText && <>
-          <div>X</div>
-         <DicionarioComponent url={URL_dicionario}/>   
+         <DicionarioComponent url={URL_dicionario} SetdicionarioView={SetdicionarioView}/>   
           </>}
             </>}
 
