@@ -14,13 +14,19 @@ O Caminho Digital da Bíblia é uma plataforma digital desenvolvida para facilit
 
 - HTML, CSS e JavaScript para a estruturação, estilo e interatividade da aplicação.
 - React para o desenvolvimento da interface do usuário.
+- - - apis - - -
+    - bibliaapi: https://bible-api.com/
+    - dicionarioaaberto: https://api.dicionario-aberto.net/index.html
+    - webstorageApi: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
+    - speechSynthes: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+      
 - Firebase para o armazenamento e gerenciamento de dados.
 - Font Awesome para a inclusão de ícones na interface.
 
 ## Instalação e Uso
 
 1. Clone este repositório: `git clone https://github.com/seu-usuario/caminho-digital-da-biblia.git`
-2. Instale as dependências: `npm install`
+2. Instale as dependências: `npm i ou npm install`
 3. Inicie o servidor de desenvolvimento: `npm run dev`
 4. Acesse o aplicativo em seu navegador: `http://localhost:3000`
 
