@@ -11,6 +11,7 @@ O Caminho Digital da Bíblia é uma plataforma digital desenvolvida para facilit
 - **Síntese de Voz**: Permite aos usuários ouvirem os versículos em voz alta para uma experiência de aprendizado mais imersiva. comandos de pause, parar e velocidade sendo acessivo quando a api for assionada. 
 - **Capítulos Rápidos**: Facilita o acesso rápido a todos os capítulos da Bíblia.
 - **paginação**: navegue com facilidade pelas paginas da biblia, podendo ir acessar páginas antecessoras e sucessoras de cada livro ou acessar todos os capitulos.
+- **autenticação**: Funcionalidade de criar, logar nas suas contas mantendo uma expêriencia individual para cada usuarios.
 - **blog**: Na página de feed os usuarios podem se comunicar através de postagens e responder ss postagens de qualquer usuarios, voçê pode ver todas suas postagens e os comentarios pelo seu perfil, também tem a funcionalidade de voçê excluir qualquer uma.
 
 ## Tecnologias Utilizadas
@@ -23,7 +24,7 @@ O Caminho Digital da Bíblia é uma plataforma digital desenvolvida para facilit
     - webstorageApi: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
     - speechSynthes: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
       
-- Firebase para o armazenamento e gerenciamento de dados.
+- Firebase para o armazenamento, gerenciamento de dados e autenticação.
 - Font Awesome para a inclusão de ícones na interface.
 
 ## Instalação e Uso
