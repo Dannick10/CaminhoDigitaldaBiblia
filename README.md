@@ -3,24 +3,17 @@
 O Caminho Digital da Bíblia é uma plataforma digital desenvolvida para facilitar o acesso e o estudo da Bíblia de forma moderna e intuitiva. A aplicação oferece uma experiência fluida e responsiva em diversas plataformas e dispositivos, permitindo que os usuários explorem os textos sagrados de maneira conveniente e significativa.
 
 ## Funcionalidades Principais
-
-- **Versículo do Dia**: Apresenta um versículo bíblico diferente a cada dia para inspiração e reflexão.
-  
-- **favoritar Versículos**: Permite aos usuários favoritar versículos com um double-click nos espaços em branco da biblia. Podem ser acessados a qualquer momento, em uma página ordenado por data.
-  
-- **ApiContext**: HookReact para segurar o livro enquanto voçê navega o aplicativo, assim o usuario pode fazer postagem e continuar de onde parou, também, o usuario pode acessar toda a página do versiculo que foi favoritado.
-  
-- **Dicionário de Palavras**: Oferece definições de palavras bíblicas para ajudar na compreensão do texto, apenas com um clique em qualquer palavra do livro.
-  
-- **Síntese de Voz**: Permite aos usuários ouvirem os versículos em voz alta para uma experiência de aprendizado mais imersiva. comandos de pause, parar e velocidade sendo acessivo quando a api for assionada.
-  
-- **Livros Rápidos**: Facilita o acesso rápido a todos os livros da Bíblia.
-  
-- **paginação**: navegue com facilidade pelas paginas da biblia, podendo acessar páginas antecessoras e sucessoras de cada livro ou acessar todos os capitulos.
-  
-- **autenticação**: Funcionalidade de criar e logar nas suas contas mantendo uma expêriencia individual para cada usuarios.
-  
-- **blog**: Na página de feed os usuarios podem se comunicar através de postagens e comentarios, voçê pode ver todas as suas postagens e os comentarios pelo seu perfil, também tem a funcionalidade de voçê excluir qualquer uma.
+| Recurso             | Descrição                                                                                                                                                 |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Versículo do Dia    | Apresenta um versículo bíblico diferente a cada dia para inspiração e reflexão.                                                                         |
+| Favoritar Versículos| Permite aos usuários favoritar versículos com um double-click nos espaços em branco da Bíblia. Podem ser acessados a qualquer momento, ordenados por data. |
+| ApiContext          | HookReact para manter o livro enquanto navega no aplicativo, permitindo postagens contínuas e acesso à página de versículos favoritados.                |
+| Dicionário de Palavras | Oferece definições de palavras bíblicas para ajudar na compreensão do texto, com um clique em qualquer palavra do livro.                                |
+| Síntese de Voz      | Permite aos usuários ouvirem os versículos em voz alta para uma experiência de aprendizado mais imersiva, com comandos de pause, parar e velocidade acessíveis. |
+| Livros Rápidos      | Facilita o acesso rápido a todos os livros da Bíblia.                                                                                                      |
+| Paginação           | Permite navegar facilmente pelas páginas da Bíblia, acessando páginas anteriores e posteriores de cada livro ou todos os capítulos.                       |
+| Autenticação        | Funcionalidade de criar e fazer login nas contas dos usuários, mantendo uma experiência individualizada para cada usuário.                                |
+| Blog                | Na página de feed, os usuários podem se comunicar através de postagens e comentários. Também é possível visualizar todas as postagens e comentários no perfil, com a capacidade de exclusão. |
 
 ## Tecnologias Utilizadas
 
