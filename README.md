@@ -14,7 +14,7 @@ O Caminho Digital da Bíblia é uma plataforma digital desenvolvida para facilit
   
 - **Síntese de Voz**: Permite aos usuários ouvirem os versículos em voz alta para uma experiência de aprendizado mais imersiva. comandos de pause, parar e velocidade sendo acessivo quando a api for assionada.
   
-- **Capítulos Rápidos**: Facilita o acesso rápido a todos os capítulos da Bíblia.
+- **Livros Rápidos**: Facilita o acesso rápido a todos os livros da Bíblia.
   
 - **paginação**: navegue com facilidade pelas paginas da biblia, podendo acessar páginas antecessoras e sucessoras de cada livro ou acessar todos os capitulos.
   
