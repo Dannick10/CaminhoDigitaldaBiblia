@@ -1,6 +1,6 @@
 import styles from './ChaptesNumber.module.css'
 import { useFetchBible } from '../hooks/useFetchBible';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter,checked,setChecked}) => {
 
@@ -92,17 +92,46 @@ const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter,check
         window.scrollTo(0,0);
        setChecked(false)
     }
+
+    const [book,SetBook] = useState('')
+    const [findbook,SetfindBook] = useState()
+    const [viewbook,Setviewbook] = useState(false)
+
+
+    const handleBook = (e) => {
+      SetBook(e.target.value)
+    }
+
+    useEffect(()=>{
+      SetfindBook(manyChaptersBookHas.filter(b => b.nome.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(book.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ""))))
+    },[book])
     
   return (
-    <div className={styles.link}>
+    <nav className={styles.link}>
       <ul  style={checked ? {height: '70vh', flexWrap: 'wrap', flexDirection: 'column'}:{}}>
+
+        <div className={styles.search}>
+
+            <input type="text" style={!viewbook ? {width: '0em', visibility: 'hidden'}:{width: '10em'}} value={book} onChange={handleBook} className={styles.input}/>
+
+          <i class="fa-solid fa-magnifying-glass" onClick={()=>Setviewbook(viewbook?false:true)}></i>
+        </div>
+        {book.length == 0 ?(<>
         {manyChaptersBookHas.map((e, i) => (
           <li key={i} className={styles.chapterlink}>
             <button onClick={handleClick} style={e.nome === bookname?{color:'var(--color1)'}:{color:'var(--color3)'}}>{e.nome}</button>
           </li>
         ))}
+        </>): (<>
+      {findbook.map((e,i) => (
+       <li key={i} className={styles.chapterlink}>
+       <button onClick={handleClick} style={e.nome === bookname?{color:'var(--color1)'}:{color:'var(--color3)'}}>{e.nome}</button>
+     </li>
+      ) )}
+        </>)}
+
       </ul>
-    </div>
+    </nav>
   )
 }
 
