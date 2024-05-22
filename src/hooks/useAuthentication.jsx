@@ -74,7 +74,6 @@ export const useAuthentication = () => {
 
     const resetPassword = (data) => {
         checkiFisCancelled()
-        console.log(data)
        sendPasswordResetEmail(auth,data).then(() => {
         SetError('Enviamos um email de recuperação de senha para o seguinte endereço: ')
        }).catch((error) => {
