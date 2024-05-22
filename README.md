@@ -15,6 +15,11 @@ O Caminho Digital da Bíblia é uma plataforma digital desenvolvida para facilit
 | Autenticação        | Funcionalidade de criar e fazer login nas contas dos usuários, mantendo uma experiência individualizada para cada usuário.                                |
 | Blog                | Na página de feed, os usuários podem se comunicar através de postagens e comentários. Também é possível visualizar todas as postagens e comentários no perfil, com a capacidade de exclusão. |
 
+## Atualização 
+
+- filtro com pesquisa de livros
+- redefinição de senha
+
 ## Tecnologias Utilizadas
 
 - HTML, CSS e JavaScript para a estruturação, estilo e interatividade da aplicação.
