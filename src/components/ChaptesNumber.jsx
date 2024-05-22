@@ -85,8 +85,10 @@ const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter,check
       },[])
 
     const handleClick = (e) =>{
-        SetBookName(e.target.innerHTML)
-        let a = manyChaptersBookHas.find(book => book.nome === e.target.innerHTML);
+      let chooseword = e.target.innerHTML
+        SetBook('')
+        SetBookName(chooseword)
+        let a = manyChaptersBookHas.find(book => book.nome === chooseword);
         SetChapterSize(a.number)
         SetBookChapter(1)
         window.scrollTo(0,0);
@@ -103,7 +105,9 @@ const ChaptesNumber = ({bookname,SetBookName,SetChapterSize,SetBookChapter,check
     }
 
     useEffect(()=>{
+
       SetfindBook(manyChaptersBookHas.filter(b => b.nome.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(book.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ""))))
+      
     },[book])
     
   return (
