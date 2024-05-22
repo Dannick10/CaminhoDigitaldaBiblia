@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Login.module.css'
 import { useAuthentication } from '../../hooks/useAuthentication'
 
@@ -58,6 +59,10 @@ const Login = () => {
                value={password}
                onChange={(e)=>SetPassword(e.target.value)}
                />
+
+              <Link to='/forgotpassword' className={styles.link}>
+              <span className={styles.forgot}>Esqueci a senha</span>
+              </Link> 
                
                <div className='visible'>
                 {viewpassword == 'password'?(

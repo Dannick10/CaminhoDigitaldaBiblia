@@ -6,11 +6,13 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     updateProfile,
-    signOut
+    signOut,
+    sendPasswordResetEmail
 } from 'firebase/auth'
 
 
 import { useState, useEffect } from 'react'
+import firebase from 'firebase/compat/app'
 
 export const useAuthentication = () => {
     const [error,SetError] = useState(null)
@@ -70,6 +72,23 @@ export const useAuthentication = () => {
         signOut(auth)
     }
 
+    const resetPassword = (data) => {
+        checkiFisCancelled()
+        console.log(data)
+       sendPasswordResetEmail(auth,data).then(() => {
+        SetError('Enviamos um email de recuperação de senha para o seguinte endereço: ')
+       }).catch((error) => {
+        let systemErrorMessage 
+        if(error.message.includes('missing-email')){
+            systemErrorMessage =  'Email não encontrado'
+        } else {
+            systemErrorMessage = 'Error, tente novamente mais tarde.'
+        }
+        
+        SetError(systemErrorMessage)
+       })
+    }
+
     const login = async (data) => {
         checkiFisCancelled()
 
@@ -106,6 +125,7 @@ export const useAuthentication = () => {
         error,
         loading,
         logout,
+        resetPassword,
         login
     }
 

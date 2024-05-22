@@ -1,0 +1,16 @@
+span.forgot{
+    font-size: .8em;
+    cursor: pointer;
+}
+
+.forgot:hover{
+    color: var(--color1);
+}
+
+.forgot:active{
+   filter: brightness(120%);
+}
+
+.link{
+    text-decoration: none;
+}
