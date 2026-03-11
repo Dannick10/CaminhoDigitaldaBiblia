@@ -1,49 +1,114 @@
-# Caminho Digital da Bíblia
+# 📖 Caminho Digital da Bíblia
+**Uma experiência moderna, intuitiva e acessível para o estudo das Escrituras.**
 
-O Caminho Digital da Bíblia é uma plataforma digital desenvolvida para facilitar o acesso e o estudo da Bíblia de forma moderna e intuitiva. A aplicação oferece uma experiência fluida e responsiva em diversas plataformas e dispositivos, permitindo que os usuários explorem os textos sagrados de maneira conveniente e significativa.
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)](https://firebase.google.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://caminhodigitaldabiblia.vercel.app/)
 
-## Funcionalidades Principais
-| Recurso             | Descrição                                                                                                                                                 |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Versículo do Dia    | Apresenta um versículo bíblico diferente a cada dia para inspiração e reflexão.                                                                         |
-| Favoritar Versículos| Permite aos usuários favoritar versículos com um double-click nos espaços em branco da Bíblia. Podem ser acessados a qualquer momento, ordenados por data. |
-| ApiContext          | HookReact para manter o livro enquanto navega no aplicativo, permitindo postagens contínuas e acesso à página de versículos favoritados.                |
-| Dicionário de Palavras | Oferece definições de palavras bíblicas para ajudar na compreensão do texto, com um clique em qualquer palavra do livro.                                |
-| Síntese de Voz      | Permite aos usuários ouvirem os versículos em voz alta para uma experiência de aprendizado mais imersiva, com comandos de pause, parar e velocidade acessíveis. |
-| Livros Rápidos      | Facilita o acesso rápido a todos os livros da Bíblia.                                                                                                      |
-| Paginação           | Permite navegar facilmente pelas páginas da Bíblia, acessando páginas anteriores e posteriores de cada livro ou todos os capítulos.                       |
-| Autenticação        | Funcionalidade de criar e fazer login nas contas dos usuários, mantendo uma experiência individualizada para cada usuário.                                |
-| Blog                | Na página de feed, os usuários podem se comunicar através de postagens e comentários. Também é possível visualizar todas as postagens e comentários no perfil, com a capacidade de exclusão. |
+---
 
-## Atualização 
+### ⚡ Sobre o Projeto
+O **Caminho Digital da Bíblia** é uma plataforma desenvolvida para facilitar o acesso ao texto sagrado de forma moderna. A aplicação oferece uma experiência fluida e responsiva, permitindo que os usuários explorem a Bíblia com ferramentas interativas que auxiliam na compreensão e reflexão, seja no desktop ou dispositivos móveis.
 
-- filtro com pesquisa de livros
-- redefinição de senha
+---
 
-## Tecnologias Utilizadas
+### 🚀 Funcionalidades Principais
 
-- HTML, CSS e JavaScript para a estruturação, estilo e interatividade da aplicação.
-- React para o desenvolvimento da interface do usuário.
-- - - apis - - -
-    - bibliaapi: https://bible-api.com/
-    - dicionarioaaberto: https://api.dicionario-aberto.net/index.html
-    - webstorageApi: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
-    - speechSynthes: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
-      
-- Firebase para o armazenamento, gerenciamento de dados e autenticação.
-- Font Awesome para a inclusão de ícones na interface.
+| Recurso | Descrição |
+| :--- | :--- |
+| **✨ Versículo do Dia** | Inspiração diária selecionada para reflexão imediata. |
+| **⭐ Favoritar Versículos** | Salve versículos com um *double-click* nos espaços em branco. Acesso rápido e ordenado por data. |
+| **🧠 ApiContextHook** | Gerenciamento de estado global para manter o contexto da leitura durante a navegação. |
+| **🎙️ Síntese de Voz** | Ouça os versículos (Speech API) com controles de pausa, parada e ajuste de velocidade. |
+| **📖 Dicionário Integrado** | Definições instantâneas de palavras bíblicas ao clicar diretamente no texto. |
+| **🌐 Blog & Feed** | Espaço de interação onde usuários podem criar postagens, comentar e gerenciar seu perfil. |
+| **🔍 Busca e Navegação** | Filtro dinâmico de pesquisa por livros, capítulos e paginação intuitiva. |
+| **🔐 Autenticação** | Sistema de login, cadastro e redefinição de senha para uma experiência personalizada. |
 
-## Instalação e Uso
+---
 
-1. Clone este repositório: `git clone https://github.com/seu-usuario/caminho-digital-da-biblia.git`
-2. Instale as dependências: `npm i ou npm install`
-3. Inicie o servidor de desenvolvimento: `npm run dev`
-4. Acesse o aplicativo em seu navegador: `http://localhost:3000`
+### 🛠️ Tecnologias & APIs Utilizadas
 
-## Contribuição
+- **Frontend:** React.js, JavaScript (ES6+), HTML5, CSS3.
+- **Backend & Auth:** Firebase (Authentication, Firestore Database, Hosting).
+- **Icons:** Font Awesome.
+- **Integrações de API:**
+  - [Bible API](https://bible-api.com/) - Interface para recuperação de textos bíblicos.
+  - [Dicionário Aberto API](https://api.dicionario-aberto.net/) - Base de dados para o dicionário léxico.
+  - [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) - Conversão de texto em fala (TTS).
+  - [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) - Armazenamento de preferências e cache local.
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue para reportar bugs ou sugerir novas funcionalidades. Se preferir, faça um fork do projeto, implemente suas alterações e envie um pull request.
+---
 
-## Licença
+## ⚙️ Instalação
 
-Este projeto está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
+Siga os passos abaixo para rodar o projeto localmente:
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/Dannick10/CaminhoDigitaldaBiblia.git
+```
+
+2. Acesse a pasta do projeto:
+
+```bash
+cd seu-repositorio
+```
+
+3. Instale as dependências:
+
+```bash
+npm install
+```
+
+4. Execute o projeto em ambiente de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+5. Abra no navegador:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 🤝 Contribuição
+
+Contribuições são sempre bem-vindas! Para colaborar com o projeto, siga os passos abaixo:
+
+1. Faça um **Fork** deste repositório.
+2. Crie uma **Branch** para sua melhoria ou correção:
+
+```bash
+git checkout -b feature/Melhoria
+```
+
+3. Faça o **Commit** das suas alterações:
+
+```bash
+git commit -m "Add: descrição da melhoria"
+```
+
+4. Envie as alterações para o seu fork:
+
+```bash
+git push origin feature/Melhoria
+```
+
+5. Abra um **Pull Request** explicando as mudanças realizadas.
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a **MIT License**.
+
+---
+
+<div align="center">
+<sub>Desenvolvido com foco em acessibilidade e tecnologia por <strong>Daniel Rocha</strong></sub>
+</div>
